@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html >
+
+
+    <head lang="en">
+	<link rel="icon" href="img/icon.png" type="image/png" sizes="16x16">
+        <meta charset="UTF-8">
+        <title>GrocBee</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+        <link rel="stylesheet" type="text/css" href="css/application.css">
+        <link rel="stylesheet" type="text/css" href="css/global.css">
+        <link rel="stylesheet" type="text/css" href="css/animate.css">
+		<!-- <link rel="stylesheet" href="css/flat-ui.css"> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		
+        <script src="js/bootstrap.js"></script>
+        <script src="js/jquery.backstretch.min.js"></script>
+        <script src="js/typeahead.bundle.js"></script>
+        <script src="js/handlebars.js"></script>
+        <script src="js/application.js"></script>
+        <script src="js/angular.min.js"></script>
+        <script src="js/applicationangular.js"></script>
+        <script src="js/ui-bootstrap-tpls-0.14.3.min.js"></script>
+        <script src="js/ngStorage.min.js"></script>
+        <script src="js/angular-route.min.js"></script>
+        <script src="js/angular-cookies.min.js"></script>
+        <script src="js/angular-animate.min.js"></script>
+        <script src="js/lodash.min.js""></script>
+        <script src="/path/to/angular-simple-logger/angular-simple-logger[.min].js"></script>
+        <script src="js/angular-google-maps.min.js"></script>
+        <script src="js/index.js"></script>
+		<script src="js/me-lazyload.js"></script>
+        <script src="js/googlemapsensor.js"></script>
+		<script src="js/angular-filter.min.js"></script>
+		
+		  <link href="http://www.professorcloud.com/styles/cloud-zoom.css" rel="stylesheet" type="text/css">
+ 
+  <script type="text/JavaScript" src="http://www.professorcloud.com/js/cloud-zoom.1.0.2.js"></script>
+		
+		
+		
+		 <!-- <script src="js/flat-ui.min.js"></script> -->
+    </head>
+    <body ng-app="myapp" ng-controller="myCtrl" ng-init="init()" style="margin:0px;
+ padding:0;">
+        <script></script>
+        <style type="text/css">
+		
+		
+		</style>
+		<div>
+		<span class="loadercontent" ng-show="showloaderimage">
+		<img class="imageloader"src="img/spin.gif">
+		</span>
+		</div>
+	
+        <nav ng-show="isMobile"  scroll ng-class="boolChangeClass ? 'min' :'navbarnew'"  class="navbar  navbar-fixed-top "  >
+            <!--<nav class="navbar navbar-default" style="position:fixed;z-index:2000;width:100%;background: #FFF;
+                border: 2px solid #F00;
+                padding: 10px;" > -->
+            <div class="container-fluid" style="background-color:grey" ng-hide="(added||removed)">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" style="color:white" href="#/main"><span>Groc<b>Bee</b><img  src="img/icon.png"style="height:30px;width:30px"> </span></a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  
+				   <form class="navbar-form  navbar-left" role="search">
+                        <div class="form-group" id="bloodhoundss" >
+                            <input ng-model="search" type="text" class=" form-control input-lg searchbar search-query "
+                                style=" margin-left:50px" placeholder="What do you wish for?"  ng-model-options="{debounce: 1000}">
+                        </div>
+                    </form>
+				
+                    <ul class="nav navbar-nav navbar-right">
+                        <li >
+                            <a style="color:white" href="#/index"  ng-click="  ">
+                            Start Shopping
+                            </a>
+                        </li>
+						
+                        <li ng-show="!user.valid">
+                            <a href="#" data-toggle="modal" ng-click="openLogin();  $event.preventDefault()" style="color:white">
+                            Login
+                            </a>
+                        </li>
+                       <!--  <li ng-show="user.valid">
+                            <a href="#" data-toggle="modal" ng-click="$event.preventDefault()">
+                            <i class="glyphicon glyphicon-user " style="color: green"></i>
+                            <span style="color:white">Hello{{user.firstName}} {{user.lastName}} !</span>
+                            </a>
+                        </li> -->
+                        <li >
+                            <a style="color:white" href="#" data-toggle="modal" ng-click="openSeller();  $event.preventDefault()">
+                            Sell with Us
+                            </a>
+                        </li>
+                        <li>
+                            <a   style="color:white" href="#" data-toggle="modal" ng-click="openContactus();  $event.preventDefault()">Contact Us
+                            <i
+                                class="fa fa-mail-forward"></i>
+                            </a>
+                        </li>
+                        
+                            <li class="nav-divider "></li>
+                            
+							
+							 <li class="dropdown" ng-show="user.valid">
+					  <a style="color:white;background-color:#f53700;    background-image:none"  href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i
+										class="fa fa-user fa-fw" style="color: green"></i>MyAccount <span class="fa fa-caret-down"></span></a>
+					  <ul class="dropdown-menu">
+						<li><a href="#" ng-click=" showorder();$event.preventDefault() "><i class="fa fa-pencil fa-fw"></i>My Order</a></li>
+					   <li><a href="#" ng-click=" logout();$event.preventDefault() "><i class="fa fa-pencil fa-fw"></i>Logout</a></li>
+					    
+					  </ul>
+						</li>
+						<li  >
+						<div class="showhim uiv2-checkout-basket uiv2-your-basket" >
+                            <a href="" aria-haspopup="true" aria-expanded="false" data-placement="bottom" title="Cart" data-content="" >
+                            <i
+                                class="glyphicon glyphicon-shopping-cart" style="color:white"></i>
+                            <span class="badge" style="color:#f53700;background-color:white">{{itemsaddedtocart}}</span>
+                            </a>
+							
+							
+							<div class="cart_desktopContainer " >
+															<div >
+																<h4 class="panel-title" style="margin:10px">
+																	</span>
+																		Your Order
+																</h4>
+															</div>
+															<div >
+																
+																
+																	<div class="panel-body" style="overflow:scroll; height:300px;" >
+																		<div class="text-warning" ng-show="cart.products.length==0">
+																			Noting ordered yet !</div>
+																		<ul class=" ">
+																			<li class=" col-md-12 list-group-item"
+																				ng-repeat="productCart in cart.products">
+																				<div class="row">
+																				<div class=" col-md-2  fa fa-rupee " style="font-size:15px; ">{{productCart.totalPriceInCart}}</div>
+																				<div class="col-md-4 ">{{productCart.productName}}</div>
+																				<div class=" col-md-6">
+																						
+																						<button type="button" class=" btn-danger btn-xs"
+																							data-type="minus" data-field="quant[2]"
+																							ng-click="removeFromCartFromNavbar(productCart)">
+																							<span class="glyphicon glyphicon-minus "></span>
+																						</button>
+																						<span class=" " style="font-size:20px " ng-show="productCart.numberOfItemsIncart>0">{{productCart.numberOfItemsIncart}}</span>
+																						<button type="button" class=" btn-success btn-xs"
+																							data-type="plus" data-field="quant[2]"
+																							data-ng-click="addTOCartfromnavbar(productCart); $event.preventDefault()">
+																							<span class="glyphicon glyphicon-plus"></span>
+																						</button>
+																						
+																					
+																						 <button type="button" class=" btn-danger btn-xs pull-right"
+																									data-type="plus" data-field="quant[2]"
+																									>
+																						<span class="glyphicon glyphicon-trash"  ng-click="removeProduct($index)" aria-hidden="true"></span>
+																						
+																						</button>
+																						
+																					</div>
+																						
+																				</div>
+																			
+																			</li>
+																		</ul>
+																	</div>
+																	<div class="panel-footer" ng-show="cart.products.length">
+																		<div class="label label-danger" style="padding-top:10px;padding-left:20px;background-color:#f53700;font-size:20px">
+																			Total: <i class="fa fa-rupee">{{cart.subtotal}}</i>
+																		</div>
+																	</div>
+																	<div class="panel-footer" ng-show="cart.products.length">
+																		<div class="text-muted">Happy Shopping!</div>
+																	</div>
+																	<div class="pull-right" style="margin:10px">
+																		<span class="btn btn-danger" ng-click="clearOrder()"
+																			ng-disabled="!cart.products.length">Clear</span> <span
+																			class="btn btn-success" ng-click="open()" data-toggle="modal"
+																			ng-disabled="!cart.products.length">Checkout</span> 
+																	</div>
+																</div>
+															</div>
+														</div>
+							</div>
+							</li>	
+							
+						
+												
+												
+													
+														
+													
+												
+	
+						
+                        
+							
+                            
+                           
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+			<div class="alert alert-success"  ng-show="added" style="top:0;height:70px;font-size:20px;text-align:center">
+			You have added {{addedItem}}!
+			</div>
+			<div class="alert alert-danger"  ng-show="removed" style="top:0;height:70px;font-size:20px;text-align:center">
+			You have added {{removedItem}}!
+			</div>
+			 <div  ng-class="boolChangeClass ? 'hidecategory' :'showcategory'" >
+       
+         <section >
+
+            
+                <div class="col-lg-12  text-center ">
+                   
+                    <div class="row">
+                  
+				  
+				  
+				 <div ng-repeat="productCategory in categories" class=" col-md-1 col-lg-1 col-sm-1 text-center divcategory" >
+          
+			   <img category class="img-circle img-responsive img-center mainmenuimg"    src="./img/{{productCategory.idproductcategory}}.jpeg" alt="" ng-click="selectCategory(productCategory.categoryName)">
+              
+				<h6 style="text-align:center">{{productCategory.categoryName}}
+                   
+                </h6>
+                
+            </div>
+				   
+			      </div>
+				
+                   
+                </div>
+               
+           
+           <hr class="" ></hr>	
+        
+	</section>
+		  
+    </div>
+			
+            <!-- /.container-fluid -->
+        </nav>
+	
+		
+        <div class="container">
+            <div id="popover_content_wrapper" style="display: none " class="container ">
+                <div>
+                    <ul>
+                        <li style="list-style: none; border-bottom:solid ">
+                            <div class="panel-group">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <img src="" style="height: 70px ;width: 70px"
+                                            class="img-circle ">
+                                        <span>1kg Sugarasdfasddfgs</span>
+                                        <button type="button" class="btn btn-danger " style="margin-left: 50px">
+                        <li class="icon-trash"></li>
+                        </button>
+                        </div>
+                        <div class="panel-body">
+                        <div class="input-append input-prepend ">
+                        <button class="btn btn-info">
+                        <li class="icon-minus"></li>
+                        </button>
+                        <input style="height: 34px ;width: 35px" type="text">
+                        <button class="btn btn-info">
+                        <li class="icon-plus"></li>
+                        </button>
+                        <label style="margin-left: 10px" class="text-success">Rs.300</label>
+                        <label style="margin-left: 30px;">You saved Rs.3</label>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li style="list-style: none;border-bottom:solid ">
+                            <div class="panel-group ">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <img src="" style="height: 70px ;width: 70px"
+                                            class="img-circle ">
+                                        <span>1kg Sugarasdfasddfgs</span>
+                                        <button type="button" class="btn btn-danger " style="margin-left: 50px">
+                        <li class="icon-trash"></li>
+                        </button>
+                        </div>
+                        <div class="panel-body">
+                        <div class="input-append input-prepend ">
+                        <button class="btn btn-info">
+                        <li class="icon-minus"></li>
+                        </button>
+                        <input style="height: 34px ;width: 35px" type="text">
+                        <button class="btn btn-info">
+                        <li class="icon-plus"></li>
+                        </button>
+                        <label style="margin-left: 10px" class="text-success">Rs.300</label>
+                        <label style="margin-left: 30px;">You saved Rs.3</label>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li style="list-style: none;border-bottom:solid ">
+                            <div class="panel-group">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <img src="" style="height: 70px ;width: 70px"
+                                            class="img-circle ">
+                                        <span>1kg Sugarasdfasddfgs</span>
+                                        <button type="button" class="btn btn-danger " style="margin-left: 50px">
+                        <li class="icon-trash"></li>
+                        </button>
+                        </div>
+                        <div class="panel-body">
+                        <div class="input-append input-prepend ">
+                        <button class="btn btn-info">
+                        <li class="icon-minus"></li>
+                        </button>
+                        <input style="height: 34px ;width: 35px" type="text">
+                        <button class="btn btn-info">
+                        <li class="icon-plus"></li>
+                        </button>
+                        <label style="margin-left: 10px" class="text-success">Rs.300</label>
+                        <label style="margin-left: 30px;">You saved Rs.3</label>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Everything you want hidden at 940px or less, place within here -->
+            <div class="nav-collapse collapse">
+                <!-- .nav, .navbar-search, .navbar-form, etc -->
+            </div>
+        </div>
+        </div>
+        </div>
+        <div class="container-fluid" >
+		
+		         <form class="hidden"  action="https://test.payu.in/_payment" method="post" name="payuForm">
+			
+			<input type="text" name="key" ng-model="payment.key" />
+      <input type="text" name="hash" ng-model="payment.hash" />
+      <input type="text" name="txnid" ng-model="payment.txnid"  />
+
+	  <input type="text" name="service_provider" ng-model="payment.service_provider" />
+      <table>
+        <tr>
+          <td><b>Mandatory Parameters</b></td>
+        </tr>
+        <tr>
+          <td>Amount: </td>
+          <td><input name="amount" ng-model="payment.amount"  /></td>
+          <td>First Name: </td>
+          <td><input name="firstname" id="firstname" ng-model="payment.firstname"  /></td>
+        </tr>
+        <tr>
+          <td>Email: </td>
+          <td><input name="email" id="email" ng-model="payment.email"  /></td>
+          <td>Phone: </td>
+          <td><input name="phone" ng-model="payment.phone"  /></td>
+        </tr>
+        <tr>
+          <td>Product Info: </td>
+          <td colspan="3"><input name="productinfo" ng-model="payment.productinfo"  size="64" /></td>
+        </tr>
+        <tr>
+          <td>Success URI: </td>
+          <td colspan="3"><input name="surl" ng-model="payment.surl" size="64" /></td>
+        </tr>
+        <tr>
+          <td>Failure URI: </td>
+          <td colspan="3"><input name="furl" ng-model="payment.furl"  size="64" /></td>
+        </tr>
+        <tr>
+          <td><b>Optional Parameters</b></td>
+        </tr>
+        <tr>
+          <td>Last Name: </td>
+          <td><input name="lastname" id="lastname"  /></td>
+          <td>Cancel URI: </td>
+          <td><input name="curl" value="" /></td>
+        </tr>
+        <tr>
+          <td>Address1: </td>
+          <td><input name="address1"  /></td>
+          <td>Address2: </td>
+          <td><input name="address2"  /></td>
+        </tr>
+        <tr>
+          <td>City: </td>
+          <td><input name="city" /></td>
+          <td>State: </td>
+          <td><input name="state"  /></td>
+        </tr>
+        <tr>
+          <td>Country: </td>
+          <td><input name="country"  /></td>
+          <td>Zipcode: </td>
+          <td><input name="zipcode" /></td>
+        </tr>
+        <tr>
+          <td>UDF1: </td>
+          <td><input name="udf1"  /></td>
+          
+        <tr>
+          <td>UDF3: </td>
+          <td><input name="udf3"  /></td>
+          <td>UDF4: </td>
+          <td><input name="udf4"  /></td>
+        </tr>
+        <tr>
+          <td>UDF5: </td>
+          <td><input name="udf5"  /></td>
+          <td>PG: </td>
+          <td><input name="pg" /></td>
+        </tr>
+        <tr>
+         
+            <td colspan="4"><input type="submit" value="Submit" /></td>
+         
+        </tr>
+      </table>
+			
+			</form>
+            <div   ng-view="" autoscroll="true" ></div>
+        </div>
+        <script type="text/ng-template" id="seller.html">
+   
+			
+		<div class="modal-content modalshadow">
+            <div class="modal-header">
+            <button style="color:black" type="button" class="close glyphicon glyphicon-close" aria-label="Close" ng-click="cancel()">
+            <span
+            aria-hidden="true"><i class="fa fa-times "></i></span>
+            </button>
+            
+            
+            <h4 class="modal-title" id="gridSystemModalLabel" style="padding:20px;color:white;font-size:25px ;background-color:#f53700;">Sell With Us</h4>
+            </div>
+			
+			<div class="modal-body">
+            <div ng-show="showmessagetoseller">
+            <h1 style="padding:20px;color:green" >Thank You!</h1> 
+            <h3 style="padding:20px" >We will get back to you in 24-48 Hours.</h3>
+            
+            </div>
+            <div ng-hide="showmessagetoseller">
+            <div class="card card-container container-fluid">
+            <div>
+            <form name="sellerform">
+            <div class="form-group">
+            <label for="exampleInputName2">Name</label>
+            <input  type="text" class="form-control" id="exampleInputName2" placeholder="Enter Name" ng-model="seller.name" required>
+            </div>
+            <div class="form-group">
+            <label for="exampleInputEmail2">Email</label>
+			<div class="input-group margin-bottom-sm">
+			<span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+            <input   type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter Email" ng-model="seller.email" required>
+            </div>
+			</div>
+            <div class="form-group">
+            <label for="exampleInputEmail2">Phone Number</label>
+            <input ng-keypress="filterValue($event)" ng-model="seller.mobileNumber" type="text" class="form-control" id="exampleInputEmail2"
+            placeholder="Enter Phone Number" ng-model="seller.phoneNumber" required>
+            </div>
+            <div class="form-group">
+            <label for="exampleInputEmail2">Product</label>
+            <input  ng-model="seller.product"type="text" class="form-control" id="exampleInputEmail2"
+            placeholder="Enter Product Name" ng-model="seller.phoneNumber" required>
+            </div>
+            <div class="form-group">
+            <label for="exampleInputEmail2">Message</label>
+            
+            <textarea  ng-model="seller.message" class="form-control" id="message-text"
+            placeholder="Enter Message" ng-model="seller.phoneNumber" required></textarea>
+            </div>
+            <input type="submit" ng-disabled='!sellerform.$valid' class="btn btn-success" value="Send invitation" ng-click="sendInvitation()"></input>
+            </form>
+            </div>
+            </div>
+            </div>
+         </div>
+           </div>
+		  
+            
+        </script>
+        <script type="text/ng-template" id="forgotpassword.html">
+            <div class="modal-dialog ">
+            <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" aria-label="Close" ng-click="cancel()">
+            <span
+            aria-hidden="true"><i class="fa fa-times "></i></span>
+            </button>
+            <h4 class="modal-title" id="gridSystemModalLabel">Forgot Password</h4>
+            </div>
+            <div class="card card-container container-fluid">
+            <div>
+            <form >
+            
+            <div class="form-group">
+            <label for="exampleInputEmail2" >Enter Your Email/Mobile Number</label>
+            <input type="text" class="form-control" id="exampleInputEmail2" placeholder="Enter Email/Mobile Number" ng-model="forgot.email" required>
+            </div>
+            
+            <button type="submit" class="btn btn-default" ng-click="forgotpassword()">Get Password</button>
+            </form>
+            </div>
+            </div>
+            </div>
+            </div>
+            
+        </script>
+        <script type="text/ng-template" id="contactus.html">
+            
+            <div class="modal-content modalshadow" >
+			 
+            <div class="modal-header">
+           <button type="button" class="close" ng-click="cancel()" aria-label="Close">
+		
+            <span
+            aria-hidden="true" ><i class="fa fa-times "></i></span>
+            </button>
+            <h4 class="modal-title" id="exampleModalLabel" style="padding:20px;color:white;font-size:25px ;background-color:#f53700;">Contact Us</h4>
+            </div>
+            <div class="modal-body">
+            <div ng-show="showmessagetocustomer">
+            <h1>Thank You!</h1> 
+            <h3>We will get back to you in 24-48 Hours.</h3>
+            
+            </div>
+            <div ng-hide="showmessagetocustomer">
+            <form name="contactus">
+            <div class="form-group">
+            <label for="name" class="control-label">Name:</label>
+            <input type="text" class="form-control" id="name"  ng-model="contact.fullName" required placeholder="Enter Name">
+            </div>
+            <div class="form-group">
+            <label for="email" class="control-label">Phone Number:</label>
+            <input ng-keypress="filterValue($event)" type="text" class="form-control" id="email"  ng-model="contact.mobileNumber" required placeholder="Enter Contact Number">
+            </div>
+            <div class="form-group">
+            <label for="email" class="control-label">Email:</label>
+            <input type="email" class="form-control" id="email" ng-model="contact.email" placeholder="Enter Email Id">
+            </div>
+            <div class="form-group">
+            <label for="message-text" class="control-label">Message:</label>
+            <textarea class="form-control" id="message-text" ng-model="contact.message" required placeholder="Enter Message"></textarea>
+            </div>
+            <button  type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancel()">Close</button>
+            <input  ng-disabled='!contactus.$valid' type="submit" class="btn btn-primary" ng-click="contactussubmit()" value="Send message"></input>
+            </form>
+            
+            <div class="modal-footer">
+            
+            </div>
+            </div>
+            </div>
+            </div>
+            
+        </script>
+        <script type="text/ng-template" id="myModalContent.html">
+            
+			
+			<div class="modal-content modalshadow" >
+		 
+		 <div class="modal-header " style="background-color:#f53700">
+   <button type="button" ng-click="cancel()" class="close" data-dismiss="modal" aria-label="Close">
+   <span
+      aria-hidden="true" ><i class="fa fa-times "></i></span>
+   </button>
+   <div class="container">
+      <div class="process">
+         <div class="process-row">
+            <div class="process-step col-md-3">
+               <button type="button " style=" width: 40px;
+                  height: 40px;
+                  text-align: center;
+                  padding: 6% 0;
+                  font-size: 6px;
+                  line-height: 0.6;
+                  border-radius: 100%;" ng-class="modalcheckout.checkout ?'btn-success':'btn-default'" class="btn btn-circle" disabled="disabled"><i class="fa fa-shopping-basket fa-3x"></i></button>
+               <p>Summary</p>
+            </div>
+            <div class="process-step col-md-3">
+               <button type="button btn-circle" style=" width: 40px;
+                  height: 40px;
+                  text-align: center;
+                  padding: 6% 0;
+                  font-size: 6px;
+                  line-height: 0.6;
+                  border-radius: 100%;"  ng-class="modalcheckout.showAddress ?'btn-success':'btn-default'"  class="btn  btn-circle"  disabled="disabled"><i class="fa fa-home fa-3x"></i></button>
+               <p>Address</p>
+            </div>
+            <div class="process-step col-md-3">
+               <button type="button btn-circle" style=" width: 40px;
+                  height: 40px;
+                  text-align: center;
+                  padding: 6% 0;
+                  font-size: 6px;
+                  line-height: 0.6;
+                  border-radius: 100%;"  ng-class="modalcheckout.showpayment ?'btn-success':'btn-default'" class="btn  btn-circle" disabled="disabled"><i class="fa fa-rupee fa-3x"></i></button>
+               <p>Payment </p>
+            </div>
+         </div>
+      </div>
+   </div>
+   </button>
+   <div style="text-align: center">
+      <h4  class="" style="color:white;font-size:25px ;">Checkout</h4>
+   </div>
+</div>
+				
+		 
+		 
+            
+           
+            <div class="modal-body" >
+            
+            <div class="text-warning" ng-show="cart.products.length==0" >
+            <h1 style="color:red">Noting ordered yet !</h1>
+            </div>
+            
+            <div ng-show="modalcheckout.finalcheckout"  >
+            <h1>Your Order is Successfull</h1>
+            <div class="row"  >
+               <div class="col-sm-12 col-md-10 col-md-offset-1">
+                  <table class="table">
+                     <thead>
+                        <tr>
+                           <th>Product</th>
+                           <th></th>
+                           <th>Quantity</th>
+                           <th class="text-center">Price</th>
+                           <th class="text-center">Total</th>
+                           <th> </th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr ng-repeat="product in finalOrder.productList">
+                           <td class="col-sm-1 col-md-1">
+                              <div class="media">
+                                 <div class="thumbnail pull-left"> <img class="media-object" src="./img/104.jpeg" style="width: 32px; height: 32px;"> </div>
+                              </div>
+                           </td>
+                           <td class="col-sm-2 col-md-2">
+                              <div class="media-body ">
+                                 <span class="media-heading">{{product.productName}} ({{product.brand}})</span>
+                              </div>
+                           </td>
+                           <td class="col-sm-1 col-md-1" style="text-align: center">
+                              <span >{{product.numberOfItemsIncart}}</span>
+                           </td>
+                           <td class="col-sm-1 col-md-1 text-center"><strong>{{product.salePrice}}</strong></td>
+                           <td class="col-sm-1 col-md-1 text-center"><strong>{{product.totalPriceInCart}}</strong></td>
+                        </tr>
+                        <tr >
+                           <td>   </td>
+                           <td>   </td>
+                           <td>   </td>
+                           <td>
+                              <h5>Subtotal</h5>
+                           </td>
+                           <td class="text-right">
+                              <h5><strong>{{finalOrder.subtotal}}</strong></h5>
+                           </td>
+                        </tr>
+                        <tr >
+                           <td>   </td>
+                           <td>   </td>
+                           <td>   </td>
+                           <td>
+                              <h5>Shipping Charge</h5>
+                           </td>
+                           <td class="text-right">
+                              <h5><strong>{{finalOrder.shipping}}</strong></h5>
+                           </td>
+                        </tr>
+						  <tr >
+                           <td>   </td>
+                           <td>   </td>
+                           <td>   </td>
+                           <td>
+                              <h5>Total Discount</h5>
+                           </td>
+                           <td class="text-right">
+                              <h5><strong>{{finalOrder.maxDiscountAmount}}</strong></h5>
+                           </td>
+                        </tr>
+                        <tr >
+                           <td>   </td>
+                           <td>   </td>
+                           <td>   </td>
+                           <td>
+                              <h3>Total</h3>
+                           </td>
+                           <td class="text-right">
+                              <h3><strong>{{finalOrder.Total}}</strong></h3>
+                           </td>
+                        </tr>
+						
+						<tr>
+						<td>  
+						<div style="font-size:20px">
+						<p>{{finalOrder.address.addressLine1}} </p><p> {{finalOrder.address.addressLine2}} </p>
+					<p>						{{finalOrder.address.landMark}},
+            {{finalOrder.address.city}}  ,{{finalOrder.address.state}} ,{{finalOrder.address.pinCode}} </p>
+					<p>			{{finalOrder.address.email}}</p></td>
+						
+						</div>
+						</tr>
+						
+                        <tr>
+                           <td>   </td>
+                           <td>   </td>
+                           <td>   </td>
+                           <td>
+                              <button type="button" class="btn btn-default" ng-click="cancel()">
+                              <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
+                              </button>
+                           </td>
+                           <td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+            </div>
+       
+            
+							   <div class="row" ng-show="modalcheckout.showpayment">
+							<div>
+							<div class="col-md-12"><h1>Select Payment Mode:</h1></div>
+							</div>
+							<div class="col-md-12" style="margin-top:20px" >
+							
+							<div class="col-md-10" >
+							<button class="btn col-md-3 col-sm-3  col-lg-3 btn-default "  type="button" ng-click="makepayment('online')" value="Online Payment" ng-class="{'btn-success':pay.online}">
+							<i class="fa fa-credit-card-alt"></i> <span>Online Payment</span>
+							
+							</button>
+							<button class="btn col-md-3 col-sm-3 col-lg-3 btn-default" style="margin-left:5px" type="button" ng-click="makepayment('cash')" value="Cash/Sodexo" ng-class="{'btn-success':pay.cash}">
+							<i class="fa fa-money"></i><span>Cash/Sodexo</span>
+							</button>
+							<button class="btn col-md-3 col-sm-3 col-lg-3 btn-default" style="margin-left:5px" type="button" ng-click="makepayment('swipe')" value="Swipe On Delivery" ng-class="{'btn-success':pay.swipe}">
+							<i class="fa fa-cc-mastercard"></i><span>Swipe On Delivery</span>
+							</button>
+							</div>
+							</div>
+							<div class="col-md-12" style="margin:20px">
+							
+								<input type="button" class="btn btn-success " ng-show="modalcheckout.submitfinalorder" ng-click="cancel();callpayment();" value="Submit Final Order"></input>
+							
+				<input name="cancelbutton" type="button" class="btn btn-warning "  id="luckybutton" ng-click="cancel()" value="Cancel"></input>
+							</div>  
+							</div>
+            
+            
+            
+            <div class="row" ng-show="modalcheckout.checkout">
+            <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <table class="table pure-table table-hover ">
+            <thead >
+            <tr style="background-color:#ffc04c">
+            <th>Product</th>
+            <th></th>
+            <th>Quantity</th>
+            <th class="text-center">Price</th>
+            <th class="text-center">Total</th>
+            <th> </th>
+			 <th> </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="product in cart.products">
+            <td class="col-sm-1 col-md-1">
+            <div class="media">
+            <div class="thumbnail pull-left"> <img class="media-object" src="./img/1.jpeg" style="width: 32px; height: 32px;"> </div>
+            
+            </div>
+            </td>
+            <td class="col-sm-2 col-md-2">
+            <div class="media-body ">
+            <span class="media-heading">{{product.productName}}{{product.minQuantity}} {{product.unit}}({{product.brand}})</span>
+            
+            </div>
+            </td>
+            <td class="col-sm-1 col-md-1" style="text-align: center">
+            <span >{{product.numberOfItemsIncart}}</span>
+            </td>
+            <td class="col-sm-1 col-md-1 text-center"><strong>{{product.salePrice}}</strong></td>
+            <td class="col-sm-1 col-md-1 text-center"><strong>{{product.totalPriceInCart}}</strong></td>
+            <td class="col-sm-2 col-md-2 text-right">
+            <div class="row">
+            						
+            <div class="form-inline ">
+            								<div class="form-group">
+            									<button type="button" class="  btn-danger btn-xs"
+            										data-type="minus" data-field="quant[2]"
+            										ng-click="removeFromCart(product)">
+            										<span class="glyphicon glyphicon-minus "></span>
+            									</button>
+            									</div>
+            									<div class="form-group">
+            									<button type="button" class=" btn-success btn-xs"
+            										data-type="plus" data-field="quant[2]"
+            										ng-click="addTOCart(product)">
+            										<span class="glyphicon glyphicon-plus"></span>
+            									</button>
+            									
+            								</div>
+            							</div>
+            							
+            							</div>
+            							</td>
+            <td class="col-sm-1 col-md-1 text-right" >
+         <button type="button" class=" btn-danger btn-xs"
+            										data-type="plus" data-field="quant[2]"
+            										>
+										<span class="glyphicon glyphicon-trash"  ng-click="removeProduct($index)" aria-hidden="true"></span>
+									</button>
+									</td>
+            </tr>
+            
+            <tr ng-show="cart.products.length>0">
+            <td>   </td>
+            <td>   </td>
+            <td>   </td>
+			<td>   </td>
+			  <td>   </td>
+            <td><h5>Subtotal</h5></td>
+            <td class="text-right"><h5> <i class="fa fa-rupee"></i><strong>{{cart.subtotal}}</strong></h5></td>
+			 
+            </tr>
+            <tr ng-show="cart.products.length>0">
+            <td>   </td>
+            <td>   </td>
+            <td>   </td>
+			<td>   </td>
+			  <td>   </td>
+            <td><h5>Shipping Charge</h5></td>
+            <td class="text-right"><h5><i class="fa fa-rupee "></i><strong>{{cart.shipping}}</strong></h5></td>
+            </tr>
+			
+			<tr ng-show="cart.products.length>0" >
+                           <td>   </td>
+                           <td>   </td>
+                           <td>   </td>
+						   <td>   </td>
+			  <td>   </td>
+                           <td>
+                              <h5>Total Discount</h5>
+                           </td>
+                           <td class="text-right">
+                              <h5><i class="fa fa-rupee "></i><strong>{{cart.maxDiscountAmount}}</strong></h5>
+                           </td>
+                        </tr>
+            <tr ng-show="cart.products.length>0">
+            <td>   </td>
+            <td>   </td>
+            <td>   </td>
+			<td>   </td>
+			  <td>   </td>
+            <td><h3>Total</h3></td>
+            <td class="text-right"><h3><i class="fa fa-rupee "></i><strong>{{cart.Total}}</strong></h3></td>
+            </tr>
+			
+			 <tr ng-show="cart.products.length>0">
+            <td>   </td>
+            <td>   </td>
+            <td>   </td>
+			<td>   </td>
+			  <td>   </td>
+            <td><h3>Total Saving</h3></td>
+            <td class="text-right"><h3><i class="fa fa-rupee "></i><strong>{{cart.Total}}</strong></h3></td>
+            </tr>
+			
+		    <tr ng-show="cart.products.length>0">
+            <td>   </td>
+			<td>   </td>
+			  <td>   </td>
+            <td>   </td>
+            <td>   </td>
+            <td>
+						
+						 
+						
+						
+						
+							<input class="form-control"  ng-model="coupon.couponCode"  type="text" placeholder="Enter Coupon Code"> 
+							
+							</input>
+							
+							</td>
+						
+						
+						
+            <td ><button ng-show="cart.products.length>0" type="button" class="btn  btn-success " ng-click="applycoupon()">
+							Apply Coupon <span class="glyphicon glyphicon-play"></span>
+							</button></td>
+            </tr>      
+
+		   <tr>
+            <td>  </td>
+            <td> </td>
+			<td>   </td>
+			  <td>   </td>
+            <td> </input> </td>
+            <td>
+            <button type="button" class="btn btn-warning" ng-click="cancel()">
+            <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
+            </button></td>
+            <td>
+			<button ng-show="cart.products.length>0" type="button" class="btn  btn-success " ng-click="checkoutfunction()">
+							 Checkout   <span class="glyphicon glyphicon-play"></span>
+							</button>
+			
+            
+			</td>
+			
+			
+            </tr>
+					
+            </tbody>
+            </table>
+			
+				
+						  
+						  
+						
+							
+						
+			
+			</div>
+			</div>
+            <div ng-show="modalcheckout.showAddress">
+    <div class=" " style="padding:20px">
+	
+        <legend style="color:#f53700;font-size:25px ;">Address Details</legend>
+
+
+        <table class="table table-hover">
+
+
+            <tr ng-repeat="(index,address) in userdetail.addresses">
+                <td class="col-md-10 ">
+
+                    <div class="form-group">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="addressradio" value="{{index}}" ng-model="selectedAddress.index" ng-click="selectAddressfunction(index)"></input>
+                                <div style="font-size:20px">
+                                    {{address.addressLine1}} , {{address.addressLine2}}
+                                    <p> {{address.landMark}}, {{address.city}} ,{{address.state}} ,{{address.pinCode}} </p>
+                                    <p> {{address.email}}</p>
+
+                                </div>
+                            </label>
+                        </div>
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+
+            <tr>
+                <td class="col-md-10 ">
+
+                    <div class="form-group" ng-show="userdetail.addresses.length>0">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" value="999" name="addressradio" ng-model="selectedAddress.index" ng-click="selectAddressfunction(999)">
+                                <span style="font-size:20px">
+            					New Address
+								</span>
+                        </label>
+                    </div>
+                    
+                </div>
+            
+            </td>
+            </tr>
+            </table>
+            
+            <div class="row">
+            <form class="form-horizontal" name="addressForm" ng-show="selectedAddress.index==999 || userdetail.addresses.length==0">
+            
+            
+            <!-- Form Name -->
+            
+            <!-- Text input-->
+            
+            
+            
+            <!-- <div>
+                <div class="form-group">
+                <label class="col-sm-2 control-label" for="textinput">FirstName</label>
+                <div class="col-sm-6">
+                <input class="form-control"   type="text" name="firstname" placeholder="Please Enter Full Name" ng-model="customeAddress.firstName" ng-minlength="3" required>
+                </div>
+                 <p ng-show="addressForm.firstname.$error.minlength" class="error" style="color:red;font-size:15px">Firstname is too short.</p> 
+                </div>
+                <div class="form-group">
+                <label class="col-sm-2 control-label" for="textinput">LastName</label>
+                <div class="col-sm-6">
+                <input class="form-control"   type="text" name="lastName" placeholder="Please Enter Full Name" ng-model="customeAddress.lastName" ng-minlength="3" required>
+                </div>
+                 <p ng-show="addressForm.firstname.$error.minlength" class="error" style="color:red;font-size:15px">LastName is too short.</p> 
+                </div>
+                </div>
+                 -->
+            
+            <!-- Text input-->
+			 <div class="form-group" ng-show="userdetail.addresses.length==0" >
+            <label class="col-sm-2 control-label" for="textinput">First Name</label>
+            <div class="col-sm-6">
+			<div class="input-group margin-bottom-sm">
+			<span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+                                <input type="text" placeholder="Enter First Name" class="form-control" ng-model="newcustomer.firstName" required>
+                        </div>
+                    </div>
+                    <p ng-show="errors.address.firstName" class="errormessage">Invalid First Name</p>
+    </div>
+	 <div class="form-group" ng-show="userdetail.addresses.length==0" >
+            <label class="col-sm-2 control-label" for="textinput">Last Name</label>
+            <div class="col-sm-6">
+			<div class="input-group margin-bottom-sm">
+			<span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+                                <input type="text" placeholder="Enter Last Name" class="form-control" ng-model="newcustomer.lastName" required>
+                        </div>
+                    </div>
+                    <p ng-show="errors.address.firstName" class="errormessage">Invalid Last Name</p>
+    </div>
+  
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label" for="textinput">Address Line 1</label>
+        <div class="col-sm-6">
+
+            <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-building fa-fw"></i></span>
+                <input type="text" placeholder="Enter Address Line 1" class="form-control" ng-model="customeAddress.addressLine1" required>
+            </div>
+        </div>
+        <p ng-show="errors.address.addressLine1" class="errormessage">Address Line 1 is mandatory</p>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+
+        <label class="col-sm-2 control-label" for="textinput">Address Line 2</label>
+        <div class="col-sm-6">
+            <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-building fa-fw"></i></span>
+                <input type="text" placeholder="Enter Address Line 2" class="form-control" ng-model="customeAddress.addressLine2" required>
+            </div>
+        </div>
+ <p ng-show="errors.address.addressLine1" class="errormessage">Address Line 2 is mandatory</p>
+    </div>
+    <!-- Text input-->
+							<div class="form-group">
+        <label class="col-sm-2 control-label" for="textinput">Landmark</label>
+        <div class="col-sm-4">
+            <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-university fa-fw"></i></span>
+                <input type="text" placeholder=" Enter Landmark" class="form-control" ng-model="customeAddress.landMark" required>
+            </div>
+            <p ng-show="errors.address.landMark" class="errormessage">LandMark is mandatory</p>
+        </div>
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">Area</label>
+            <div class="col-sm-3">
+                <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon"><i class="fa fa-map-marker fa-fw"></i></span>
+                    <select ng-options="state for state in area" class="form-control" ng-model="customeAddress.locality" required>
+                    </select>
+                </div>
+                <p ng-show="errors.address.locality" class="errormessage">Locality is mandatory</p>
+            </div>
+        </div>
+		</div>
+							<div class="form-group">
+    <label class="col-sm-2 control-label" for="textinput">Contact No:</label>
+    <div class="col-sm-4">
+        <div class="input-group margin-bottom-sm">
+            <span class="input-group-addon"><i class="fa fa-mobile fa-fw" "></i></span>
+            <input type="text" ng-keypress="filterValue($event)" placeholder="Enter Mobile Number" maxlength="10" class="form-control" ng-model="order.mobileNumber" ng-maxlength="10" />
+
+        </div>
+    </div>
+</div>
+
+									<div class="form-group">
+										<label class="col-sm-2 control-label" for="textinput">Email ID:</label>
+										<div class="col-sm-4">
+											<div class="input-group margin-bottom-sm">
+												<span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"  ></i></span>
+												<input type="email" placeholder="Enter Email Id" class="form-control" ng-model="customeAddress.email" required>
+											</div>
+										</div>
+										<p ng-show="errors.address.email" class="errormessage">Invalid Email ID</p>
+									</div>
+
+
+    </form>
+    <div style="margin-bottom:20px">
+        <input type="submit"  ng-show="userdetail.addresses.length!=0" value="Next" class="btn btn-success " ng-disabled="!modalcheckout.showAddressnext" ng-click="nextorder(customeAddress,selectedAddress)"></input>
+		 <input type="submit"  ng-show="userdetail.addresses.length==0" value="Next" class="btn btn-success " ng-click="nextorder(customeAddress,selectedAddress)"></input>
+        <input type="button" class="btn btn-warning pull-right" ng-click="cancel()" value="Cancel"></input>
+    </div>
+</div>
+
+
+</div>
+
+</div>
+
+            </div>
+            
+			
+			
+			
+			
+           
+            
+            </div>
+			</div>
+        </script>
+        <script type="text/ng-template" id="signup.html">
+            <div class="modal-dialog ">
+            <div class="modal-content">
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" ng-click="cancel()" aria-label="Close">
+            <span
+            aria-hidden="true">×</span>
+            </button>
+            <h4 class="modal-title" id="gridSystemModalLabel">Sign Up</h4>
+            </div>
+            <div class="card card-container container-fluid">
+            <div>
+            <form class="form-signin">
+            <label>First Name</label>
+            <input type="text" name="firstname" class="form-control" ng-model="user.firstName" required>
+            <label>Last Name</label>
+            <input type="text" name="lastname" class="form-control" ng-model="user.lastName" required>
+            <label>Email Address</label>
+            <input type="email" name="email" class="form-control" ng-model="user.email" required>
+            <label>Password</label>
+            <input type="password" name="password" class="form-control" ng-model="user.password" required>
+            <label>Mobile Number</label>
+            <input type="text" name="mobilenumber" class="form-control" ng-model="user.mobileNumber" required>
+            <label>
+            <input type="checkbox" name="terms"> I agree with the
+            <a href="#">Terms and
+            Conditions</a>.
+            </label>
+            <input type="submit" value="Sign up" ng-click="signup()" class="btn btn-primary pull-right">
+            <div class="clearfix"></div>
+            </form>
+            </div>
+            </div>
+            </div>
+            </div>
+            
+        </script>
+		
+		<script type="text/ng-template" id="process.html">
+
+            <div class="modal-content" style="position: fixed;
+  top: 50%;
+  left: 50%;
+ ">
+		<div class="modal-body" >
+		<div >
+		<div >
+		 <i class="fa fa-times fa-spinner fa-pulse fa-4x " ></i>
+		</div>
+		</div>
+		</div>
+		
+		</div>
+		</script>
+		
+        <script type="text/ng-template" id="login.html">
+    
+            <div class="modal-content modalshadow">
+            <div class="modal-header" style="padding:20px;color:white;font-size:25px ;background-color:#f53700;" 	>
+            <button type="button" class="close" ng-click="cancel()" aria-label="Close">
+            <span
+            aria-hidden="true"><i class="fa fa-times "></i></span>
+            </button>
+            <h4 class="modal-title text-center" id="gridSystemModalLabel">
+            <i
+            class="glyphicon glyphicon-barcode glyphicon-th-large" style="color:orange"></i>
+            </h4>
+            </div>
+            <div class="modal-body">
+            
+            <div class="card card-container container-fluid" >
+            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpeg?sz=120" alt="" /> -->
+            <img id="profile-img" class="profile-img-card"
+                src="img/avatar.png"/>
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin" name="formsignin">
+            
+            <input ng-disabled="otp" ng-keypress="filterValue($event)" name="mobilenumber" ng-model="loginUser.mobileNumber" maxlength="10" ng-pattern="/^(0|[1-9][0-9]*)$/"  type="text" id="inputEmail" class="form-control" ng-maxlength="10" ng-minlength="10" placeholder="Mobile Number" 
+                required
+                autofocus>
+            
+            <input ng-show="otp" name="otp" ng-model="loginUser.otp" type="text" id="otp" class="form-control" placeholder="Enter OTP"
+                required autofocus ng-keypress="filterValue($event)" maxlength="4" ng-maxlength="4" ng-minlength="4" > 
+            
+            
+            <!-- <input ng-model="loginUser.password" type="password" id="inputPassword" class="form-control" placeholder="Password"
+                required> -->
+            <input  ng-hide="otp"type="submit" ng-disabled='!formsignin.mobilenumber.$valid' class="btn btn-lg btn-primary btn-block btn-signin" ng-click="getotp() ;" value="Get OTP" >
+            </input>
+            
+            
+            <input  ng-show="otp"type="submit" ng-disabled='!formsignin.otp.$valid' class="btn btn-lg btn-primary btn-block btn-signin" ng-click="validateotp() ;" value="Validate OTP" >
+            </input>
+            
+            <label ng-show="otperror" class="error" style="color:red;padding:10px"> Invalid OTP ,Please Try Again</lable>
+            
+            </form>
+            <!-- /form -->
+            <!-- <a href="#" class="forgot-password"   ng-click="openForgotPassword();  $event.preventDefault()">
+                Forgot the password?
+                </a>
+                <a href="#" class="signup" ng-click="openSignup() ; $event.preventDefault()">
+                Sign-Up
+                </a> -->
+            <!-- <div class="col-md-12" style="margin-top: 30px">
+                <span>Login using</span>
+                <br>
+                <ul class="social-network social-circle">
+                <li>
+                <a href="#" class="icoRss aa" title="Rss">
+                <i class="fa fa-rss"></i>
+                </a>
+                </li>
+                <li>
+                <a href="#" class="icoFacebook aa" title="Facebook" ng-click="redirecttoFacebook()">
+                <i
+                class="fa fa-facebook"></i>
+                </a>
+                </li>
+                <li>
+                <a href="#" class="icoTwitter aa" title="Twitter">
+                <i class="fa fa-twitter"></i>
+                </a>
+                </li>
+                <li>
+                <a href="#" class="icoGoogle aa" title="Google +" ng-click="redirecttoGoogle()">
+                <i
+                class="fa fa-google-plus"></i>
+                </a>
+                </li>
+                <li>
+                <a href="#" class="icoLinkedin aa" title="Linkedin" ng-click="redirecttoLnkedin()">
+                <i
+                class="fa fa-linkedin"></i>
+                </a>
+                </li>
+                </ul>
+                </div> -->
+            </div>
+            <!-- /card-container -->
+            
+            </div>
+            
+            
+            
+            </div>
+            <!-- /container -->
+            </div>
+         
+            <!-- /.modal-content -->
+            
+            <!-- /.modal-dialog -->
+        </script>
+        </div>
+    </body>
+    
+        
+		
+		
+<footer ng-show="isMobile"   class="footer" style="background-color:white; 
+                    ">
+      <div class="container">
+	  <div class="col-md-4" style="text-align:left">
+        <a href="#/aboutus" style="color:black"> About Us</a>
+		</div>
+		 <div class="col-md-4" style="text-align:left;">
+        <a href="#/faq" style="color:black">FAQ</a>
+		</div>
+		</div>
+    </footer>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+
+
+  
+  <div style="margin-top:100px">
+
+  <form class="form-inline" style="padding:20px">
+  <div class="form-group">
+    <label for="exampleInputName2">Mobile Number</label>
+    <input type="text" class="form-control" id="exampleInputName" placeholder="Enter Mobile number" ng-model="search.mobileNumber">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail2">Order ID</label>
+    <input type="text" class="form-control" id="exampleInputEmail2" placeholder="Enter Order ID" ng-model="search.orderid">
+  </div>
+  <button type="submit" class="btn btn-default" ng-click="searchorder();">Search</button>
+</form>
+  
+  <div id="grid1" ui-grid="gridOptions" class="grid"></div>
+
+  
+  
+  
+
+
+
+    </div>
+  

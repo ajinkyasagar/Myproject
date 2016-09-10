@@ -1,0 +1,25 @@
+
+<div   ng-class="boolChangeClass ? 'viewbody1' :'viewbodyindexdescription'" >
+
+<div class="jumbotron " style="background-color:#f27f09" >
+<h2>Your Order is UnSuccessfull,Kindly Retry</h2>
+
+<div class="row"  >
+     <div class="col-md-12 " style="margin-top:70px" >
+			
+			<div class="col-md-2"><h3>Select Payment Mode:</h3></div>
+			<div class="col-md-10" >
+			<input class="btn col-md-3 col-sm-3  col-lg-3 btn-default"  type="button" ng-click="makepayment('online')" value="Online Payment" ng-class="{'btn-success':pay.online}">
+			<input class="btn col-md-3 col-sm-3 col-lg-3 btn-default" style="margin-left:5px" type="button" ng-click="makepayment('cash')" value="Cash/Sodexo" ng-class="{'btn-success':pay.cash}">
+			<input class="btn col-md-3 col-sm-3 col-lg-3 btn-default" style="margin-left:5px" type="button" ng-click="makepayment('swipe')" value="Swipe On Delivery" ng-class="{'btn-success':pay.swipe}">
+			</div>
+			</div>
+			<div class="  col-md-12" style="margin:20px">
+            <div class="col-md-offset-4 col-md-4 ">
+			    <input type="button" class="btn btn-success " ng-click="callpayment()" value="Submit Final Order"></input>
+            <input type="button" class="btn btn-warning " ng-click="nextpage('index')" value="Cancel"></input>
+			</div>
+			</div>  
+</div>
+</div>
+</div>

@@ -1,0 +1,67 @@
+<!doctype html>
+
+<style>
+  .full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+  }
+  .partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+  }
+  
+ 
+</style>
+  
+  <div  class="col-md-12"style="margin-top:100px">
+
+  <form class="form-inline" style="padding:20px">
+  <div class="form-group">
+    <label for="exampleInputName2">Mobile Number</label>
+    <input maxlength="10" ng-minlength="10" autofocus ng-keypress="filterValue($event)"  type="text" class="form-control" id="exampleInputName2" placeholder="Enter Mobile number" ng-model="checkorder.mobileNumber" ng-required="true">
+  </div>
+  <div class="form-group">
+<label for="exampleInputEmail2">From Date:</label>
+    <div class=" form-group">
+	    
+            <p class="input-group">
+			
+              <input type="date" class="form-control" uib-datepicker-popup ng-model="checkorder.startDate" is-open="status.openedfrom" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)"   close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="openfrom($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </p>
+        </div>
+  </div>
+    <div class="form-group">
+ <label for="exampleInputEmail2">To Date:</label>
+    <div class=" form-group">
+	
+            <p class="input-group">
+              <input type="date" class="form-control" uib-datepicker-popup ng-model="checkorder.endDate" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </p>
+        </div>
+  </div>
+       
+  
+  
+  <button type="submit" class="btn btn-default" ng-click="ordersByDateMobileNumber();">Search</button>
+  
+</form>
+  
+  <div id="grid2"  ui-grid="ordersByDateMobileNumbergrid" class="grid" style="margin-top:50px" ui-grid-resize-columns ui-grid-move-columns ui-grid-auto-resize ui-grid-selection ui-grid-exporter></div>
+
+  
+  
+  
+
+
+
+    </div>
+  
+
