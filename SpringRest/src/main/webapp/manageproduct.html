@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html >
+<head lang="en">
+<meta charset="UTF-8">
+<title>Delivery2Home</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+<link rel="stylesheet" type="text/css" href="css/application.css">
+<link rel="stylesheet" type="text/css" href="css/global.css">
+<link rel="stylesheet" type="text/css" href="css/animate.css">
+ 
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/jquery.backstretch.min.js"></script>
+<script src="js/typeahead.bundle.js"></script>
+<script src="js/handlebars.js"></script>
+<script src="js/application.js"></script>
+<script src="js/angular.js"></script>
+<script src="js/adminangular.js"></script>
+
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.2.js"></script>
+<script src="js/angular-route.js"></script>
+<script src="js/angular-cookies.js"></script>
+<script src="js/angular-animate.js"></script>
+
+</head>
+<body ng-app="admin" ng-controller="adminController" ng-init="init()">
+<div class="container">
+<div class="col-md-4">
+<form>
+<div class="form-group">
+<label for="name" class="control-label">productCode:</label>
+<input type="text" class="form-control" id="name"  ng-model="product.productCode" >
+</div>
+<div class="form-group">
+<label for="text" class="control-label">productName:</label>
+<input type="text" class="form-control" id="text"  ng-model="product.productName" >
+</div>
+<div class="form-group">
+<label for="text" class="control-label">ProductSubCatagory:</label>
+<input type="text" class="form-control" id="text" ng-model="product.ProductSubCatagory">
+</div>
+<div class="form-group">
+<label for="message-text" class="control-label">productCatagory:</label>
+<textarea class="form-control" id="message-text" ng-model="product.productCatagory" ></textarea>
+</div>
+<div class="form-group">
+<label for="name" class="control-label">price:</label>
+<input type="text" class="form-control" id="name"  ng-model="product.price" >
+</div>
+<div class="form-group">
+<label for="text" class="control-label">quantity:</label>
+<input type="text" class="form-control" id="text"  ng-model="product.quantity" >
+</div>
+<div class="form-group">
+<label for="text" class="control-label">inStock:</label>
+<input type="text" class="form-control" id="text" ng-model="product.inStock">
+</div>
+<div class="form-group">
+<label for="message-text" class="control-label">brand:</label>
+<textarea class="form-control" id="message-text" ng-model="product.brand" ></textarea>
+</div>
+<div class="form-group">
+<label for="name" class="control-label">sale:</label>
+<input type="text" class="form-control" id="name"  ng-model="product.sale" >
+</div>
+<div class="form-group">
+<label for="text" class="control-label">percentage:</label>
+<input type="text" class="form-control" id="text"  ng-model="product.percentage" >
+</div>
+<div class="form-group">
+<label for="text" class="control-label">productVender:</label>
+<input type="text" class="form-control" id="text" ng-model="product.productVender">
+</div>
+<div class="form-group">
+<label for="message-text" class="control-label">buyPrice:</label>
+<textarea class="form-control" id="message-text" ng-model="product.buyPrice" ></textarea>
+</div>
+<div class="form-group">
+<label for="name" class="control-label">Productline:</label>
+<input type="text" class="form-control" id="name"  ng-model="product.Productline" >
+</div>
+<div class="form-group">
+<label for="text" class="control-label">Productscale:</label>
+<input type="text" class="form-control" id="text"  ng-model="product.Productscale" >
+</div>
+<div class="form-group">
+<label for="text" class="control-label">url:</label>
+<input type="text" class="form-control" id="text" ng-model="product.url">
+</div>
+<div class="form-group">
+<label for="message-text" class="control-label">discounts:</label>
+<textarea class="form-control" id="message-text" ng-model="product.discounts" ></textarea>
+</div>
+<div class="form-group">
+<label for="name" class="control-label">isOrganic:</label>
+<input type="text" class="form-control" id="name"  ng-model="product.isOrganic" >
+</div>
+<div class="form-group">
+<label for="text" class="control-label">unit:</label>
+<input type="text" class="form-control" id="text"  ng-model="product.unit" >
+</div>
+<div class="form-group">
+<label for="text" class="control-label">minQuantity:</label>
+<input type="text" class="form-control" id="text" ng-model="product.minQuantity">
+</div>
+<div class="form-group">
+<label for="message-text" class="control-label">description:</label>
+<textarea class="form-control" id="message-text" ng-model="product.description" ></textarea>
+</div>
+
+<div class="form-group">
+<label for="message-text" class="control-label">shortDescription:</label>
+<textarea class="form-control" id="message-text" ng-model="product.shortDescription" ></textarea>
+</div>
+<div class="form-group">
+<label for="text" class="control-label">numberOfItemsIncart:</label>
+<input type="text" class="form-control" id="text"  ng-model="product.numberOfItemsIncart" >
+</div>
+<div class="form-group">
+<label for="text" class="control-label">totalPriceInCart:</label>
+<input type="text" class="form-control" id="text"  ng-model="product.totalPriceInCart" >
+</div>
+<div class="form-group">
+<label for="text" class="control-label">isNew:</label>
+<input type="text" class="form-control" id="text"  ng-model="product.isNew" >
+</div>
+<button  type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancel()">Close</button>
+<button type="submit" class="btn btn-primary" ng-click="hello()" >Send message</button>
+</form>
+</div>
+</div>
+</body>
+</html>

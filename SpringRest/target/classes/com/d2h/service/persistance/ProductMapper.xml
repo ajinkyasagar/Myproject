@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.d2h.service.persistance.ProductMapper">
+    
+    <cache />
+	<select id="getAllProductsForCache" resultType="com.d2h.service.domain.Product">
+		SELECT productId, productCatagory, productName, salePrice, description, MRP, brand, isOnSale, isNew FROM Product
+	</select>
+	
+	
+	<select id="getAllProducts" resultType="com.d2h.service.domain.ui.ProductDetail" >
+		SELECT productId, productCatagory, productName, salePrice, description, MRP, brand, isOnSale, isNew FROM Product
+	</select>
+	
+	<select id="selectProductByName" resultType="com.d2h.service.domain.Product">
+		SELECT productId, productCatagory, productName, salePrice, description, MRP, brand, isOnSale, isNew FROM Product where productCatagory = #{productCatagory}
+	</select>
+	
+	<select id="selectProductById" resultType="com.d2h.service.domain.Product">
+		SELECT  productId, productCatagory, productName, salePrice, description, MRP, brand, isOnSale, isNew FROM Product where productId = #{productId}
+	</select>
+	
+	<!-- <delete id="deleteProduct" parameterType="com.d2h.service.domain.Product">
+		DELETE FROM Products where id = #{id}
+	</delete>-->
+
+	<insert id="insertProduct" parameterType="com.d2h.service.domain.Product">
+		INSERT INTO Product (productId, productCatagory, ProductSubCatagory, productName, avbleQuantity, salePrice, buyPrice, percentage, productVenderId, imageUrl, discount, isOrganic, minQuantity, description, productEntryDate, longDescription, MRP, productFeature, unit, isOnSale, isValid )
+		VALUES (#{productId}, #{productCatagory}, #{ProductSubCatagory}, #{productName}, #{avbleQuantity}, #{salePrice}, #{buyPrice}, #{percentage}, #{productVenderId}, #{imageUrl}, #{discount}, #{isOrganic}, #{minQuantity}, #{description}, #{productEntryDate}, #{longDescription}, #{MRP}, #{productFeature}, #{unit}, #{isOnSale}, #{isValid})
+	</insert>
+	
+	<select id="getAllProductsById" resultType="com.d2h.service.domain.Product">
+		SELECT  productId, productName, avbleQuantity, salePrice, buyPrice, MRP FROM Product 
+		where productId in  
+		<foreach item="element" index="index" collection="list"
+             open="(" separator="," close=")">
+         #{element.productId}
+      </foreach> 
+	</select>
+	
+	<!-- <update id="updateProduct" parameterType="java.util.List">
+	   <foreach  item="element" collection="list" >
+		UPDATE Product SET	avbleQuantity = #{element.avbleQuantity} WHERE productId = #{element.productId}
+		</foreach>
+	</update>  -->
+	
+	<update id="updateProduct" parameterType="com.d2h.service.domain.Product">
+		UPDATE Product SET	avbleQuantity = #{avbleQuantity} WHERE productId = #{productId}
+	</update> 
+	
+	<!-- <update id="updateProduct" parameterType="java.util.List">
+		 <foreach  item="element" collection="list" open="" close=";"  separator=";">
+			UPDATE Product SET avbleQuantity = (
+			select (SELECT t.avbleQuantity FROM (SELECT * FROM Product) t WHERE t.productId = #{element.productId}) + #{element.avbleQuantity} as qty 
+			) WHERE productId = #{element.productId} 
+		</foreach>
+	</update>  -->
+	
+	<!-- <update id="updateCancelReturn" parameterType="java.util.List">
+	Update Product (
+		orderId,
+		productId,
+		quantity,
+		status,
+		reason,
+		damagedDate,
+		amount,
+		productName
+	) 
+	VALUES(
+	  <foreach  item="element" collection="list" open="" close="" separator="),(" >
+		#{element.orderId}, #{element.productId}, #{element.quantity}, #{element.status}, #{element.reason}, #{element.damagedDate}, #{element.amount}, #{element.productName}
+	</foreach>)
+</update> -->
+	
+	 <!--  <update id="updateProduct" parameterType="java.util.List" >
+	    <foreach  item="element" collection="productList" separator=";" >
+		UPDATE Product SET	
+		avbleQuantity = #{element.avbleQuantity}
+		WHERE productId = #{element.productId}
+		</foreach>)
+	</update> --> 
+	
+</mapper>

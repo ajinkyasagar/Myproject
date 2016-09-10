@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.d2h.service.persistance.OrderMapper">
+
+	<cache />
+	
+
+	<select id="getAllOrder" resultType="com.d2h.service.domain.CustomerOrder">
+		SELECT orderId, orderDesc, productDesc, productId, productQty, orderQty, productUnitBuyPrice, email, orderPlaceDate, orderDeliveryDate, orderStatus, paymentType, addressId, mobileNumber, productUnitSellPrice, totalBuyPrice, totalSellPrice, profitLossPrice, productName, couponCode, venderId  FROM custorder where mobileNumber = #{mobileNumber}
+	</select>
+	
+	<select id="allOrderFromDateToDate" resultType="com.d2h.service.domain.CustomerOrder">
+		SELECT orderId, orderDesc, productDesc, productId, productQty, orderQty, productUnitBuyPrice, email, orderPlaceDate, orderDeliveryDate, orderStatus, paymentType, addressId, mobileNumber, productUnitSellPrice, totalBuyPrice, totalSellPrice, profitLossPrice, productName, couponCode from custorder 
+		 WHERE orderPlaceDate BETWEEN #{startDate, ,jdbcType=DATE} and #{endDate, ,jdbcType=DATE} 
+	</select>
+	
+	<select id="allVendorByFromToDate" resultType="com.d2h.service.domain.CustomerOrder">
+		SELECT orderId, orderDesc, productDesc, productId, productQty, orderQty, productUnitBuyPrice, email, orderPlaceDate, orderDeliveryDate, orderStatus, paymentType, addressId, mobileNumber, productUnitSellPrice, totalBuyPrice, totalSellPrice, profitLossPrice, productName, couponCode from custorder 
+		 WHERE orderPlaceDate BETWEEN #{startDate, ,jdbcType=DATE} and #{endDate, ,jdbcType=DATE} 
+	</select>
+	
+	<select id="allVendorOrdersByStatus" resultType="com.d2h.service.domain.CustomerOrder">
+		SELECT orderId, orderDesc, productDesc, productId, productQty, orderQty, productUnitBuyPrice, email, orderPlaceDate, orderDeliveryDate, orderStatus, paymentType, addressId, mobileNumber, productUnitSellPrice, totalBuyPrice, totalSellPrice, profitLossPrice, productName, couponCode from custorder 
+		 WHERE venderId = #{venderId} and status = #{status} 
+	</select>
+	
+	<select id="allVendorOrdersByVenderId" resultType="com.d2h.service.domain.CustomerOrder">
+		SELECT orderId, orderDesc, productDesc, productId, productQty, orderQty, productUnitBuyPrice, email, orderPlaceDate, orderDeliveryDate, orderStatus, paymentType, addressId, mobileNumber, productUnitSellPrice, totalBuyPrice, totalSellPrice, profitLossPrice, productName, couponCode from custorder 
+		 WHERE venderId = #{venderId} 
+	</select>
+	
+	
+	<select id="allOrderByDateMobileNumber" resultType="com.d2h.service.domain.CustomerOrder">
+		SELECT orderId, orderDesc, productDesc, productId, productQty, orderQty, productUnitBuyPrice, email, orderPlaceDate, orderDeliveryDate, orderStatus, paymentType, addressId, mobileNumber, productUnitSellPrice, totalBuyPrice, totalSellPrice, profitLossPrice, productName, couponCode from custorder 
+		 WHERE mobileNumber = #{mobileNumber} and orderPlaceDate BETWEEN #{startDate} and #{endDate} 
+	</select>
+	
+	<select id="selectOrder" resultType="com.d2h.service.domain.CustomerOrder">
+		SELECT orderId, orderDesc, productDesc, productId, productQty, orderQty, productUnitBuyPrice, email, orderPlaceDate, orderDeliveryDate, orderStatus, paymentType, addressId, mobileNumber, productUnitSellPrice, totalBuyPrice, totalSellPrice, profitLossPrice, couponCode  FROM custorder where orderId = #{orderId}
+	</select>
+	
+	<select id="getAllOrdersById" resultType="com.d2h.service.domain.CustomerOrder">
+		SELECT orderId, orderDesc, productDesc, productId, productQty, orderQty, productUnitBuyPrice, email, orderPlaceDate, orderDeliveryDate, orderStatus, paymentType, addressId, mobileNumber, productUnitSellPrice, totalBuyPrice, totalSellPrice, profitLossPrice, couponCode  
+		FROM custorder 
+		where orderId in  
+		<foreach item="element" index="index" collection="list"
+             open="(" separator="," close=")">
+         #{element.orderId}
+      </foreach> 
+	</select>
+	
+	<select id="selecOrdertByMobileNumber" resultType="com.d2h.service.domain.CustomerOrder">
+		SELECT orderId, orderDesc, productDesc, productId, productQty, orderQty, productUnitBuyPrice, email, orderPlaceDate, orderDeliveryDate, orderStatus, paymentType, addressId, mobileNumber, productUnitSellPrice, totalBuyPrice, totalSellPrice, profitLossPrice, couponCode  FROM custorder where mobileNumber = #{mobileNumber}
+	</select>
+	
+	<select id="selectOrdertByOrderId" resultType="com.d2h.service.domain.CustomerOrder">
+		SELECT orderId, orderDesc, productDesc, productId, productQty, orderQty, productUnitBuyPrice, email, orderPlaceDate, orderDeliveryDate, orderStatus, paymentType, addressId, mobileNumber, productUnitSellPrice, totalBuyPrice, totalSellPrice, profitLossPrice, couponCode  FROM custorder where orderId = #{orderId}
+	</select>
+	
+	<delete id="deleteOrder" parameterType="com.d2h.service.domain.CustOrder">
+		DELETE FROM custorder where orderid = #{orderid}
+	</delete>
+	
+	<insert id="insertOrder" parameterType="java.util.List">
+	INSERT INTO custorder (orderId, orderDesc, productDesc, productId, productQty, orderQty, productUnitBuyPrice, email, orderPlaceDate, orderDeliveryDate, orderStatus, paymentType, addressId, mobileNumber, productUnitSellPrice, totalBuyPrice, totalSellPrice, profitLossPrice, productName, couponDiscount, couponCode ) 
+	VALUES(
+	 <!-- <foreach collection="list" item="element" index="index" open="(" separator=","  close=")"> -->
+	  <foreach  item="element" collection="list" open="" close="" separator="),(" >
+		#{element.orderId}, #{element.orderDesc}, #{element.productDesc}, #{element.productId}, #{element.productQty}, #{element.orderQty}, #{element.productUnitBuyPrice}, #{element.email}, #{element.orderPlaceDate}, #{element.orderDeliveryDate}, #{element.orderStatus}, #{element.paymentType}, #{element.addressId}, #{element.mobileNumber}, #{element.productUnitSellPrice}, #{element.totalBuyPrice}, #{element.totalSellPrice}, #{element.profitLossPrice}, #{element.productName}, #{element.couponDiscount}, #{element.couponCode}
+	</foreach>)
+</insert>
+
+		<update id="updateOrder" parameterType="com.d2h.service.domain.CustomerOrder">
+		UPDATE custorder SET
+			orderStatus = #{orderStatus},
+			paymentStatus = #{paymentStatus},
+			orderDeliveryDate = #{orderDeliveryDate}
+		WHERE orderId = #{orderId}
+	</update> 
+
+</mapper>

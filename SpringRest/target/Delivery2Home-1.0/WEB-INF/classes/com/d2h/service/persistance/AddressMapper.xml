@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.d2h.service.persistance.AddressMapper">
+    
+    <!-- <select id="selectCategoryById" parameterType="int" resultType="com.springriver.example.mybatis.bean.Category">
+	select category_name as categoryName from Category where category_id = #{id}
+</select> -->
+
+	<cache />
+
+	<select id="getAllAddress" resultType="com.d2h.service.domain.Address">
+		SELECT addressLine1, addressLine2,	landMark,	city,	state,	country, pinCode, addressId, email  FROM Address where mobileNumber = #{mobileNumber}
+	</select>
+	
+	<select id="selectAddressByAddressId" parameterType="map" resultType="com.d2h.service.domain.Address">
+		SELECT addressLine1, addressLine2,	landMark,	city,	state,	country, pinCode, addressId, email, mobileNumber  FROM Address where addressId = #{addressId}
+	</select>
+	
+		<select id="selectAddressByMoboleNumber" parameterType="map" resultType="com.d2h.service.domain.Address">
+		SELECT addressLine1, addressLine2,	landMark,	city,	state,	country, pinCode, addressId, email, mobileNumber  FROM Address where mobileNumber = #{mobileNumber}
+	</select>
+	
+	<delete id="deleteAddress" parameterType="com.d2h.service.domain.Address">
+		DELETE FROM Address where addressId = #{addressId} AND mobileNumber = #{mobileNumber}
+	</delete>
+
+	<insert id="insertAddress" parameterType="com.d2h.service.domain.Address">
+		INSERT INTO Address (addressId, addressLine1, addressLine2,	landMark,	city,	state,	country,	pinCode, email, mobileNumber)
+		VALUES (#{addressId}, #{addressLine1}, #{addressLine2}, #{landMark}, #{city}, #{state}, #{country}, #{pinCode}, #{email}, #{mobileNumber})
+	</insert>
+
+	<update id="updateAddress" parameterType="com.d2h.service.domain.Address">
+		UPDATE Address SET
+			addressLine1 = #{addressLine1},
+			addressLine2 = #{addressLine2},
+			landMark = #{landMark},
+			city = #{city},
+			state = #{state},
+			country = #{country},
+			pinCode = #{pinCode},
+		WHERE mobileNumber = #{mobileNumber}
+		AND addressId = #{addressId}
+	</update>
+</mapper> 

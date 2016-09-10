@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.d2h.service.persistance.CustomerMapper">
+    
+    <!-- <select id="selectCategoryById" parameterType="int" resultType="com.springriver.example.mybatis.bean.Category">
+	select category_name as categoryName from Category where category_id = #{id}
+</select> -->
+
+	<cache />
+
+	<select id="getAllCustomers" resultType="com.d2h.service.domain.Customer">
+		SELECT firstName, lastName, email, mobileNumber, password, customerLoginCreatedDate  FROM Customer
+	</select>
+	
+	<select id="selectCustomerByUserId" resultType="com.d2h.service.domain.Customer">
+		SELECT firstName, lastName, email, mobileNumber, password, userId, customerLoginCreatedDate, customerlastOrderDate FROM Customer where firstName = #{firstName}
+	</select>
+	
+	<select id="loginCustomer" resultType="com.d2h.service.domain.Customer">
+		SELECT firstName, lastName, email, mobileNumber, password, customerLoginCreatedDate FROM Customer where mobileNumber = #{mobileNumber}
+	</select>
+	
+	<select id="forgetPassword" resultType="com.d2h.service.domain.Customer">
+		SELECT firstName, lastName, email, mobileNumber, customerLoginCreatedDate, password FROM Customer where mobileNumber = #{mobileNumber}
+	</select>
+	
+	<select id="selectCustomerByMobileNumber" resultType="com.d2h.service.domain.Customer">
+		SELECT firstName, lastName, email, mobileNumber, customerLoginCreatedDate FROM Customer where mobileNumber = #{mobileNumber}
+	</select>
+	
+	<select id="selectCustomerByCouponCode" resultType="com.d2h.service.domain.Customer">
+		SELECT firstName, lastName, email, mobileNumber, customerLoginCreatedDate, couponCode FROM Customer where couponCode = #{couponCode}
+	</select>
+	
+	<delete id="deleteCustomer" parameterType="com.d2h.service.domain.Customer">
+		DELETE FROM User where mobileNumber = #{mobileNumber}
+	</delete>
+
+	<insert id="insertCustomer" parameterType="com.d2h.service.domain.Customer">
+		INSERT INTO Customer (firstName, lastName, email, mobileNumber, password, customerLoginCreatedDate)
+		VALUES (#{firstName}, #{lastName}, #{email}, #{mobileNumber} , #{password}, #{customerLoginCreatedDate})
+	</insert>
+	
+	
+	<insert id="contactUs" parameterType="com.d2h.service.domain.ContactUs">
+		INSERT INTO ContactUs (fullName, email, mobileNumber, message)
+		VALUES (#{fullName}, #{email}, #{mobileNumber}, #{message})
+	</insert>
+	
+	<update id="updateCustomer" parameterType="com.d2h.service.domain.Customer">
+		UPDATE Customer SET
+			firstName = #{firstName},
+			lastName = #{lastName},
+			email = #{email},
+			mobileNumber = #{mobileNumber},
+			password = #{password},
+			userId = #{userId},
+			customerLoginCreatedDate = #{customerLoginCreatedDate},
+			customerlastOrderDate = #{customerlastOrderDate}
+		WHERE mobileNumber = #{mobileNumber}
+	</update>
+	
+	<update id="updateCustomerWallet" parameterType="com.d2h.service.domain.Customer">
+		UPDATE Customer SET
+		goWallet = #{goWallet}
+		WHERE mobileNumber = #{mobileNumber}
+	</update>
+</mapper> 

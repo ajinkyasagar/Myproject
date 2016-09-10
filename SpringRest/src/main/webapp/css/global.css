@@ -1,0 +1,2380 @@
+.slide.ng-leave {
+  position: relative;
+}
+.slide.ng-enter {
+  position: absolute;
+}
+.slide.ng-enter, .slide.ng-leave {
+  -webkit-transition: -webkit-transform 0.3s ease-in, opacity 0.3s ease-in;
+     -moz-transition: -moz-transform 0.3s ease-in, opacity 0.3s ease-in;
+       -o-transition: -o-transform 0.3s ease-in, opacity 0.3s ease-in;
+          transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+}
+.slide.ng-enter, .slide.ng-leave.ng-leave-active {
+  -webkit-transform: scaleX(0.0001);
+       -o-transform: scaleX(0.0001);
+          transform: scaleX(0.0001);
+  opacity: 0;
+}
+.slide, .slide.ng-enter.ng-enter-active {
+  -webkit-transform: scaleX(1);
+       -o-transform: scaleX(1);
+          transform: scaleX(1);
+  opacity: 1;
+}
+
+.fixedorder{
+	 position: fixed !important
+	
+}
+
+/* Tillamook Ingredients */
+/* =Helpers
+----------------------------------------------------*/
+/* ----- Helpers ----- */
+/* File Path */
+/* Fonts */
+/* Colors */
+/* The opacity to fade to on hover */
+/* Mobile detections / show / hide*/
+#mobileDetect,
+#tabletDetect {
+  height: 0;
+  display: none;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+  width: 0;
+}
+.mobile {
+  display: none !important;
+}
+.tablet {
+  display: none !important;
+}
+.desktop {
+  display: block !important;
+}
+span.desktop {
+  display: inline !important;
+}
+/* Generic */
+.block {
+  display: block;
+}
+.margin-bottom-45 {
+  margin-bottom: 45px;
+}
+.offset-bottom-100 {
+  padding-bottom: 100px;
+}
+.no-margin {
+  margin: 0 !important;
+}
+.pull-quote {
+  border: 1px solid #e1e1e1;
+  border-width: 1px 0;
+  font-size: 30px;
+  line-height: 36px;
+  padding: 45px 0;
+  text-align: center;
+}
+.tall-pull-quote h6 {
+  font-size: 40px;
+  font-weight: normal;
+  margin: 0 0 10px;
+}
+.tall-pull-quote .subtitle-1 {
+  font-size: 20px;
+  font-style: italic;
+  margin: 0 auto 50px;
+  max-width: 390px;
+}
+.tall-pull-quote .subtitle-2 {
+  font-size: 24px;
+  font-style: italic;
+  margin: 0 auto;
+  max-width: 390px;
+}
+.bottom-image {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.relative {
+  position: relative;
+}
+.no-borders {
+  border: 0 !important;
+}
+/* Mixins */
+/* Text */
+.font16 {
+  font-size: 16px;
+}
+.genericTitleCaps {
+  display: block;
+  font-family: 'Crimson Text', georgia, serif;
+  font-size: 12px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+/* Tillamook.com Vars */
+/* Fonts */
+/* Core Colors */
+/* Custom Colors */
+/* Social Colors */
+/* =Reset
+----------------------------------------------------*/
+/*! normalize.css v2.1.3 | MIT License | git.io/normalize */
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined in IE 8/9.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+/**
+ * Correct `inline-block` display not defined in IE 8/9.
+ */
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+/**
+ * Reset box-sizing for all elements.
+ * Remove excess height in iOS 5 devices.
+ */
+*,
+*:after,
+*::before {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/**
+ * Address `[hidden]` styling not present in IE 8/9.
+ * Hide the `template` element in IE, Safari, and Firefox < 22.
+ */
+[hidden],
+template {
+  display: none;
+}
+/* ==========================================================================
+   Base
+   ========================================================================== */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 91%;
+  /* 2 */
+  -webkit-text-size-adjust: 91%;
+  /* 2 */
+}
+/**
+ * Remove default margin.
+ */
+body {
+ font-family: Algerian;
+}
+/* ==========================================================================
+   Links
+   ========================================================================== */
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+a {
+  background: transparent;
+}
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+a:focus {
+  outline: thin dotted;
+}
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+a:active,
+a:hover {
+  outline: 0;
+}
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari 5, and Chrome.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+/**
+ * Address styling not present in IE 8/9, Safari 5, and Chrome.
+ */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+ */
+b,
+strong {
+  font-weight: bold;
+}
+/**
+ * Address styling not present in Safari 5 and Chrome.
+ */
+dfn {
+  font-style: italic;
+}
+/**
+ * Address differences between Firefox and other browsers.
+ */
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+  background: #ff0;
+  color: #000;
+}
+/**
+ * Correct font family set oddly in Safari 5 and Chrome.
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em;
+}
+/**
+ * Improve readability of pre-formatted text in all browsers.
+ */
+pre {
+  white-space: pre-wrap;
+}
+/**
+ * Set consistent quote types.
+ */
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9.
+ */
+img {
+  border: 0;
+}
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+svg:not(:root) {
+  overflow: hidden;
+}
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari 5.
+ */
+figure {
+  margin: 0;
+}
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+/**
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+/**
+ * 1. Correct `color` not being inherited in IE 8/9.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+/**
+ * 1. Correct font family not being inherited in all browsers.
+ * 2. Correct font size not being inherited in all browsers.
+ * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+ */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 2 */
+  margin: 0;
+  /* 3 */
+}
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+button,
+input {
+  line-height: normal;
+}
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+button,
+select {
+  text-transform: none;
+}
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+}
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+/**
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box;
+}
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+/**
+ * 1. Remove default vertical scrollbar in IE 8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */
+}
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body {
+  background: #fff;
+  margin: 0;
+  line-height: 1.0;
+  vertical-align: baseline;
+  -webkit-font-smoothing: antialiased;
+}
+ul,
+dl {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+fieldset,
+img,
+iframe {
+  border: 0;
+  vertical-align: bottom;
+}
+address {
+  font-style: normal;
+}
+address b {
+  display: block;
+  font-size: 12px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+:focus {
+  outline: 0;
+}
+/* =IE Fixes for HTML5
+----------------------------------------------------*/
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block\9;
+  /* IE 8&9 */
+}
+audio,
+canvas,
+video {
+  display: inline-block\9;
+  /* IE 8&9 */
+}
+[hidden] {
+  display: none\9;
+  /* IE 8&9 */
+}
+/* =Layout
+----------------------------------------------------*/
+/* ----- Section ----- */
+.inner {
+  margin: 0 auto;
+  width: 1152px;
+  padding: 0 20px;
+  position: relative;
+}
+.inner-extras {
+  margin: 0 auto;
+  width: 1200px;
+  padding: 0 20px;
+  position: relative;
+}
+/* ----- Columns w/Margin ----- */
+.span-7,
+.span-11 {
+  float: left;
+  margin: 0 24px;
+}
+.two-column-holder {
+  float: left;
+}
+.span-7 {
+  width: 338px;
+}
+.span-11 {
+  width: 532px;
+}
+/* TABLES */
+.table,
+.table-cell {
+  height: 100%;
+  width: 100%;
+}
+.table {
+  display: table;
+}
+.table-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+/* =Typography
+----------------------------------------------------*/
+/* ----- Base ----- */
+html {
+  font-size: 12px;
+}
+body {
+  color: #000;
+  font-family: 'Crimson Text', georgia, serif;
+  font-size: 14px;
+}
+/* ----- Headers ----- */
+h1 {
+  font-size: 32px;
+  font-weight: normal;
+  line-height: 1.2;
+  margin: 0;
+ 
+}
+h2 {
+  font-weight: normal;
+  font-size: 21px;
+  margin: 0 0 10px 0;
+ 
+}
+h3 {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.5;
+  margin: 0 0 2px 0;
+ 
+}
+h4 {
+  font-weight: normal;
+  line-height: 1.4;
+  margin: 0;
+}
+/* ----- Paragraph ----- */
+p {
+  font-size: 20px;
+  line-height: 24px;
+  margin: 0 0 20px;
+}
+p:last-child {
+  margin-bottom: 0;
+}
+/* ----- Links ----- */
+a {
+  color: #000;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+p a {
+  font-style: italic;
+}
+/* ----- Button ----- */
+.button {
+  border: 1px solid #fff;
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #fff;
+  display: inline-block;
+  font-size: 20px;
+  padding: 20px 60px;
+  min-width: 60px;
+  text-decoration: none;
+}
+.button:hover {
+  border-color: #ffffff;
+  background: #fff;
+  color: #000;
+}
+/* =Globals
+----------------------------------------------------*/
+body {
+ 
+}
+a:focus,
+a:active {
+  outline: none !important;
+}
+/*
+ * HERO SECTION
+ */
+#hero {
+  position: relative;
+}
+#hero .foreground {
+  background-position: -99999px;
+  background-repeat: no-repeat;
+  color: #fff;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100%;
+}
+#hero h1,
+#hero h2,
+#hero h3,
+#hero h4,
+#hero h5,
+#hero h6 {
+  color: #fff;
+  font-size: 72px;
+  font-weight: bold;
+  line-height: 75px;
+  max-width: 780px;
+  margin: 64px auto 20px;
+  /* <= top margin is header height */
+  padding: 0 30px;
+}
+#hero .description {
+  font-size: 26px;
+  line-height: 30px;
+  max-width: 780px;
+  margin: 0 auto 60px;
+  padding: 0 30px;
+}
+/*
+ * MODAL STYLES
+ */
+#modal {
+  opacity: 0.4;
+  left: -99999px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9;
+  -webkit-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+.menu-close,
+#close-modal {
+  background: url(../img/icon-close.png) 0 0 no-repeat;
+  background-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 26px;
+  font-size: 1.625rem;
+  height: 20px;
+  overflow: hidden;
+  position: absolute;
+  right: 26px;
+  text-indent: 100%;
+  top: 26px;
+  width: 19px;
+  z-index: 50;
+}
+#modal.open {
+  opacity: 1;
+  left: 0;
+}
+/* =Header
+----------------------------------------------------*/
+/* ----- Header ----- */
+.main {
+  background: #fff;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=180, Color='#e6e6e6')";
+  -webkit-box-shadow: 0 3px 2px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 2px 0 rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 2;
+}
+.ie8 .main {
+  z-index: auto;
+}
+.main a:hover {
+  color: #f78f20;
+}
+.masthead {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 1012px;
+  padding: 10px 16px 0 16px;
+  position: relative;
+}
+.ie8 .masthead {
+  /*	max-width:61.25em*/
+}
+#logo-link img {
+  width: 100%;
+}
+.menu a,
+.utility-links a {
+  font-family: DINNextRoundedLTW01-Med, arial, sans-serif;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.menu .condensed-active {
+  display: none;
+}
+.freeze .page {
+  overflow: hidden;
+  position: fixed;
+}
+/* ----- Placeholders ----- */
+::-webkit-input-placeholder {
+  color: #a5afb1;
+  text-transform: capitalize;
+}
+::-moz-placeholder {
+  color: #a5afb1;
+  opacity: 1;
+  text-transform: capitalize;
+}
+:-ms-input-placeholder {
+  color: #a5afb1;
+  text-transform:capitalize ;
+}
+/* ----- Global Search ----- */
+.global-search {
+  margin: 0;
+  border-bottom: 1px solid #d5dbdd;
+  padding: 0 20px 19px;
+  visibility: hidden;
+  line-height: 1.4;
+  position: relative;
+  z-index: 0;
+}
+.global-search input {
+  background: 0 0;
+  border: 2px solid #f5f5f3;
+  border-radius: 6px;
+  color: #51595b;
+  font-family: DINNextRoundedLTW01-Med, arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  height: 40px;
+  margin: 0 0 12px;
+  padding-left: 35px;
+  width: 100%;
+  transition: all 0.25s ease-out;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+}
+.global-search:before {
+  background: url(http://www.tillamook.com/img/global/icon-search.png) 0 0 no-repeat;
+  content: '';
+  display: block;
+  height: 14px;
+  left: 30px;
+  position: absolute;
+  top: 20%;
+  width: 15px;
+  z-index: 1;
+}
+.global-search input:focus {
+  border-color: #d5dbdd;
+}
+#pusher {
+  position: relative;
+  left: 0;
+  z-index: 99;
+  min-height: 100%;
+}
+@media screen and (max-width: 1200px) {
+  #pusher {
+    background: #fff;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    transition: all .25s linear;
+  }
+  .show-side-menu #pusher {
+    left: -271px;
+  }
+  #pusher:after {
+    background: 0 0;
+    bottom: 0;
+    content: '';
+    left: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    transition: background 0.25s ease-out;
+  }
+  .show-side-menu #pusher:after {
+    background: rgba(0, 0, 0, 0.5);
+    left: 0;
+  }
+  .hide-side-menu #pusher:after {
+    background: 0 0;
+    left: 0;
+  }
+  .ie8-shade {
+    background: #000;
+    bottom: 0;
+    display: none;
+    filter: alpha(opacity=50);
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+  }
+  .show-side-menu .ie8-shade {
+    display: block;
+  }
+  header {
+    padding-bottom: 14px;
+  }
+  .masthead .utility-links,
+  .masthead fieldset {
+    display: none;
+  }
+  #logo-link {
+    display: block;
+    width: 200px;
+  }
+  a.menu-icon {
+    background: url(http://www.tillamook.com/img/global/icon-menu.png) 0 0 no-repeat;
+    height: 17px;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    width: 20px;
+    z-index: 11;
+  }
+  .menu {
+    background: #fff;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transition: all 0.25s ease-out;
+    width: 271px;
+    z-index: 0;
+  }
+  .show-side-menu .menu {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .menu-item-link {
+    border-bottom: 1px solid #d5dbdd;
+    color: #0a1a72;
+    display: block;
+    padding: 20px;
+  }
+  .has-sub-menu {
+    background: url(http://www.tillamook.com/img/global/nav-arrow-down.png) 96% 50% no-repeat;
+    background-size: 7px 4px;
+  }
+  .has-sub-menu.open {
+    background-image: url(http://www.tillamook.com/img/global/nav-arrow-up.png);
+  }
+  .sub-menu {
+    background: #f5f5f3;
+    border-bottom: 1px solid #d5dbdd;
+    display: none;
+    line-height: 1;
+  }
+  .sub-menu a {
+    border-top: 1px solid #d5dbdd;
+    color: #51595b;
+    display: block;
+    font-size: 15px;
+    margin: 0 20px;
+    padding: 16px 0;
+  }
+  .sub-menu li:first-child a {
+    border: none;
+  }
+  .sub-menu .graphic {
+    display: none;
+  }
+  .menu .condensed-active {
+    display: block;
+    visibility: visible;
+  }
+  .menu-item.slot-1 {
+    padding-top: 31px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .masthead {
+    margin-bottom: 16px;
+  }
+  .masthead fieldset {
+    border-bottom: 0;
+    position: absolute;
+    left: 16px;
+    padding: 0;
+    top: 60px;
+    visibility: visible;
+  }
+  .global-search input {
+    width: 114px;
+  }
+  .global-search input:focus {
+    width: 300px;
+  }
+  .global-search:before {
+    left: 14px;
+    top: 24%;
+  }
+  #logo-link {
+    display: block;
+    margin: 0 auto;
+    width: 248px;
+  }
+  .masthead .utility-links {
+    display: block;
+    position: absolute;
+    right: 16px;
+    text-align: right;
+    top: 72px;
+  }
+  .utility-links a {
+    color: #51595b;
+    margin-left: 15px;
+  }
+  .menu {
+    border-top: 1px solid #d5dbdd;
+    margin: 0 auto;
+    max-width: 980px;
+  }
+  .menu:after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+  .menu a {
+    color: #0a1a72;
+    display: block;
+    font-family: DINNextRoundedLTW01-Bol, arial, sans-serif;
+    position: relative;
+  }
+  .menu-item {
+    float: left;
+    line-height: 42px;
+    text-align: center;
+  }
+  .menu-item.slot-1 {
+    width: 108px;
+  }
+  .slot-1 .menu-item-link {
+    text-align: left;
+  }
+  .menu-item.slot-2 {
+    width: 122px;
+  }
+  .menu-item.slot-3 {
+    width: 260px;
+  }
+  .menu-item.slot-4 {
+    width: 150px;
+  }
+  .menu-item.slot-5 {
+    width: 144px;
+  }
+  .menu-item.slot-6 {
+    width: 196px;
+  }
+  .slot-6 .menu-item-link {
+    text-align: right;
+  }
+  .menu-item:hover .menu-item-link {
+    color: #f78f20;
+  }
+  .sub-menu {
+    height: 195px;
+    left: 0;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    visibility: hidden;
+    width: 100%;
+    z-index: 5;
+  }
+  .menu-item:hover .sub-menu {
+    opacity: 1;
+    visibility: visible;
+  }
+  .no-touch .menu-item:hover .sub-menu {
+    transition: all 0.25s ease-out 0.12s;
+  }
+  .sub-menu li {
+    display: inline-block;
+    margin: 0 -2px;
+    position: relative;
+    white-space: nowrap;
+    width: 185px;
+  }
+  .sub-menu a {
+    color: #51595b;
+    display: block;
+    margin: 20px 0 0 0;
+    padding: 0;
+    text-align: center;
+  }
+  .sub-menu .graphic {
+    background-image: url(http://www.tillamook.com/img/global/nav-main-graphics.png);
+    background-repeat: no-repeat;
+    border-radius: 115px;
+    height: 115px;
+    margin: 0 auto 15px;
+    overflow: hidden;
+    position: relative;
+    width: 115px;
+  }
+  .slot-1 .graphic {
+    border-radius: 0;
+  }
+  .graphic.slot-1-1 {
+    background-position: 0 0;
+  }
+  .graphic.slot-1-2 {
+    background-position: -115px 0;
+  }
+  .graphic.slot-1-3 {
+    background-position: -230px 0;
+  }
+  .graphic.slot-1-4 {
+    background-position: -345px 0;
+  }
+  .graphic.slot-1-5 {
+    background-position: -460px 0;
+  }
+  .graphic.slot-3-1 {
+    background-position: -575px 0;
+  }
+  .graphic.slot-3-2 {
+    background-position: -690px 0;
+  }
+  .graphic.slot-3-3 {
+    background-position: -805px 0;
+  }
+  .graphic.slot-5-1 {
+    background-position: -920px 0;
+  }
+  .graphic.slot-5-2 {
+    background-position: -1035px 0;
+  }
+  .graphic.slot-5-3 {
+    background-position: -1150px 0;
+  }
+  .graphic.slot-5-4 {
+    background-position: -1265px 0;
+  }
+  .graphic.slot-5-5 {
+    background-position: -1380px 0;
+  }
+  .graphic img {
+    display: none;
+  }
+  .sub-menu a:hover {
+    text-decoration: none;
+  }
+  .sub-menu a:hover img {
+    display: block;
+  }
+  .cover {
+    background: #fff;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=180, Color='#e6e6e6')";
+    -webkit-box-shadow: inset 0 3px 2px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 3px 2px 0 rgba(0, 0, 0, 0.1);
+    content: '';
+    height: 195px;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 166px;
+    visibility: hidden;
+    width: 100%;
+    z-index: 4;
+  }
+  .no-touch .cover {
+    transition: all 0.25s ease-out;
+    -webkit-transform: translateZ(0);
+  }
+  .cover:after {
+    bottom: 0;
+    -webkit-box-shadow: 0 3px 2px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 2px 0 rgba(0, 0, 0, 0.1);
+    content: '';
+    height: 4px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+  .ie8 .cover:after {
+    background: url(http://www.tillamook.com/img/global/ie8-main-nav-shadow.png) 0 0 repeat-x;
+    top: 0;
+    z-index: 0;
+  }
+  .menu-item:hover ~ .cover {
+    opacity: 1;
+    visibility: visible;
+  }
+  .no-sub-menu:hover ~ .cover {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.ingredients-header {
+  border-bottom: 1px solid #e1e1e1;
+  border-color: rgba(255, 255, 255, 0.2);
+  height: 64px;
+  position: absolute;
+  left: 0;
+  text-align: center;
+  top: 166px;
+  width: 100%;
+  z-index: 1;
+}
+.ingredients-header .container {
+  margin: 0 auto;
+  max-width: 1020px;
+  padding: 0 20px;
+}
+.ingredients-header .container:after {
+  clear: both;
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.ingredients-header h1 {
+  font-size: 22px;
+  float: left;
+  margin: 18px 0 0;
+  letter-spacing: 0;
+}
+.ingredients-header h1 a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+.ingredients-header #logo {
+  background: url('../img/tillamook-logo.png') no-repeat 0 0;
+  background-size: 100%;
+  float: left;
+  height: 24px;
+  overflow: hidden;
+  text-indent: -9999px;
+  width: 121px;
+}
+.ingredients-header h2 {
+  color: #fff;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin-top: 24px;
+  margin-left: -200px;
+  max-width: 100%;
+  width: 400px;
+}
+.ingredients-header h2 a {
+  color: #fff;
+  text-decoration: none;
+}
+.ingredients-header #trigger-menu {
+  color: #fff;
+  float: right;
+  font-size: 16px;
+  font-weight: normal;
+  padding: 26px 0 18px 60px;
+  position: relative;
+  text-decoration: none;
+}
+/* =Navigation
+----------------------------------------------------*/
+/* .menu-close managed in _globals.less */
+/* Animations */
+.all-container {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+/* Initial state */
+#navigation {
+  background: #000;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  visibility: hidden;
+  width: 100%;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform: translate3d(0, -100%, 0);
+  -moz-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+}
+#navigation:after {
+  clear: both;
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+#navigation .table {
+  max-height: 632px;
+}
+/* Open */
+/*.nav-open #pusher {
+	-webkit-transform: translate3d(-@navWidth, 0, 0);
+    transform: translate3d(-@navWidth, 0, 0); 
+}*/
+.ingredients-nav-open #navigation {
+  /*	-webkit-transition:-webkit-transform 0.5s;
+    transition:transform 0.5s;*/
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  visibility: visible;
+}
+#utility ul {
+  list-style-type: none;
+  float: left;
+  margin: 0;
+  width: 100%;
+}
+#utility a {
+  display: block;
+  color: #fff;
+  font-size: 30px;
+  margin-bottom: 30px;
+  text-decoration: none;
+}
+#utility a:hover {
+  opacity: 0.6;
+}
+#utility .home a {
+  font-size: 22px;
+  font-weight: bold;
+  position: relative;
+}
+#utility .hr {
+  height: 1px;
+  position: relative;
+  padding: 0 0 30px;
+}
+#utility .hr:before {
+  background: #4d4d4d;
+  content: '';
+  top: 0;
+  left: 50%;
+  margin-left: -160px;
+  height: 1px;
+  position: absolute;
+  width: 320px;
+}
+/* =Homepage
+----------------------------------------------------*/
+#buckets {
+  background: #fff;
+  padding-top: 48px;
+  padding-bottom: 60px;
+  text-align: center;
+}
+#buckets h1,
+#buckets h2,
+#buckets h3,
+#buckets h4,
+#buckets h5,
+#buckets h6 {
+  font-size: 30px;
+  font-weight: normal;
+  margin: 0 0 48px;
+}
+#buckets .bucket {
+  border-top: 1px solid #e1e1e1;
+  margin-bottom: 30px;
+  color: #000;
+  text-decoration: none;
+}
+#buckets .bucket h1,
+#buckets .bucket h2,
+#buckets .bucket h3,
+#buckets .bucket h4,
+#buckets .bucket h5,
+#buckets .bucket h6 {
+  margin: 20px 0;
+}
+#buckets .bucket p {
+  font-size: 19px;
+  line-height: 24px;
+  margin-bottom: 28px;
+  height: 72px;
+}
+#buckets .bucket img {
+  max-width: 100%;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+#buckets .bucket:hover img {
+  opacity: 0.6;
+}
+#buckets:after {
+  clear: both;
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+/* =Detail
+----------------------------------------------------*/
+/* Top description area */
+.detail-description {
+  background: #fff;
+  border-bottom: 1px solid #e1e1e1;
+  font-size: 20px;
+  padding: 48px 0;
+  line-height: 24px;
+  text-align: center;
+}
+.detail-description p {
+  max-width: 750px;
+  margin: 0 auto !important;
+}
+.detail-section {
+  background: #fff;
+}
+.detail-section .title {
+  padding: 98px 0;
+  text-align: center;
+}
+.detail-section .title hgroup {
+  background: #fff;
+  display: inline-block;
+  position: relative;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.detail-section .title h4 {
+  font-size: 40px;
+  font-weight: normal;
+  margin-bottom: 8px;
+}
+.detail-section .title h5 {
+  font-size: 20px;
+  font-style: italic;
+  margin: 0;
+  font-weight: normal;
+}
+.detail-section .title:before {
+  border-top: 1px solid #e1e1e1;
+  content: '';
+  height: 1px;
+  position: absolute;
+  left: 20px;
+  /* <= padding of inner*/
+  top: 50%;
+  width: 1152px;
+}
+.detail-section .pull-quote,
+.detail-section img,
+.detail-section p,
+.detail-section video {
+  margin-bottom: 45px;
+}
+.detail-section img {
+  max-width: 100%;
+}
+.detail-section .full-image img {
+  margin-bottom: 0;
+}
+.detail-section:after {
+  clear: both;
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+/* Custom layouts */
+.section-1-custom {
+  background: #fff;
+  font-size: 20px;
+  line-height: 24px;
+}
+.section-1-custom .row-1 {
+  margin-bottom: 100px;
+}
+.section-1-custom .row-1:after {
+  clear: both;
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.section-1-custom .row-1 .column-2 img,
+.section-1-custom .row-1 .column-3 img {
+  margin-bottom: 0;
+}
+.section-1-custom .row-1 video {
+  margin-bottom: 0;
+}
+.section-1-custom .row-2:after {
+  clear: both;
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.section-1-custom .row-2 .tall-pull-quote {
+  box-sizing: border-box;
+  height: 644px;
+  /* <= same height as right column image height*/
+  margin-bottom: 45px;
+}
+.section-1-custom .row-2 .pull-quote {
+  margin-bottom: 45px;
+}
+.section-1-custom:after {
+  clear: both;
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.section-3-custom {
+  text-align: center;
+}
+.section-3-custom .span-7 {
+  float: none;
+  display: inline-block;
+  width: 334px;
+  vertical-align: top;
+}
+#bottom-navigation {
+  background: #fff;
+  border-top: 1px solid #e1e1e1;
+  padding: 60px 0;
+  text-align: center;
+}
+#bottom-navigation .previous,
+#bottom-navigation .next {
+  color: #878787;
+  font-size: 20px;
+  font-style: italic;
+  line-height: 58px;
+  text-decoration: none;
+}
+#bottom-navigation .previous:hover,
+#bottom-navigation .next:hover {
+  color: #000;
+}
+#bottom-navigation .previous {
+  float: left;
+}
+#bottom-navigation .next {
+  float: right;
+}
+#bottom-navigation:after {
+  clear: both;
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+/* =Footer
+----------------------------------------------------*/
+footer {
+  background-color: #fff;
+  border-top: 1px solid #d5dbdd;
+  color: #a5afb1;
+  font-family: DINNextRoundedLTW01-Med, arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 32px 0;
+  position: relative;
+}
+footer a:hover {
+  color: #f78f20;
+}
+footer .col-12 {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: none;
+  margin: 0 auto;
+  max-width: 980px;
+  padding: 0 16px;
+  position: relative;
+}
+footer a {
+  color: #a5afb1;
+  font-family: DINNextRoundedLTW01-Med, arial, sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+footer hr {
+  border-bottom: 0;
+  border-top: 1px solid #d5dbdd;
+  clear: both;
+  margin: 0 0 24px 0;
+  position: relative;
+}
+footer input {
+  border: 0;
+  border-radius: 6px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: block;
+  font-family: DINNextRoundedLTW01-Med, arial, sans-serif;
+  font-weight: bold;
+  height: 40px;
+  margin: 0 0 16px 0;
+  padding: 0 16px;
+}
+footer input[type=text] {
+  border: 2px solid #d5dbdd;
+  font-size: 16px;
+  color: #51595b;
+  width: 100%;
+}
+footer .button {
+  background-color: #51595b;
+  border: 0;
+  border-radius: 6px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  /*    font-size: 1rem;*/
+  font-family: DINNextRoundedLTW01-Med;
+  height: 40px;
+  line-height: 38px;
+  margin: 0 0 12px 0;
+  padding: 0 16px;
+  min-width: 0;
+  text-decoration: none;
+  -webkit-appearance: none;
+  white-space: nowrap;
+}
+footer fieldset {
+  font-family: DINNextRoundedLTW01-Med;
+  line-height: 1.4;
+  margin: 0 0 16px 0;
+  padding: 0;
+  position: relative;
+  z-index: 0;
+}
+.footer-links {
+  line-height: 1.6;
+  margin-top: 8px;
+}
+.footer-links a {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 15px;
+}
+/* Signup */
+.global-sign-up {
+  margin-bottom: 20px;
+}
+.global-sign-up > div {
+  clear: none;
+  float: left;
+}
+.global-sign-up > div {
+  max-width: 190px;
+  margin-right: 4px;
+  width: 240px;
+}
+.global-sign-up input {
+  height: 38px;
+}
+.global-sign-up .button {
+  background-color: #b2bbbd;
+  height: 38px;
+  padding: 0 10px;
+}
+.global-sign-up .button:hover {
+  background: #939fa2;
+}
+/* ----- Social Icons ----- */
+.social-control {
+  color: #51595b;
+  overflow: hidden;
+  padding: 11px 0;
+  white-space: nowrap;
+}
+div .social-control:first-child {
+  padding-top: 0;
+}
+footer .social-control {
+  padding: 0;
+}
+.social-label {
+  display: none;
+}
+.social-icon {
+  background-image: url(http://www.tillamook.com/img/global/icons-social.png);
+  background-repeat: no-repeat;
+  background-color: #d5dbdd;
+  border-radius: 37px;
+  display: inline-block;
+  height: 37px;
+  margin: 0 3px;
+  overflow: hidden;
+  text-indent: 100%;
+  width: 37px;
+}
+footer .social-icon {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+/* ----- Share Modal ----- */
+/*tilla-blue = #0a1a72;
+tilla-orange = #f78f20*/
+.share-modal {
+  padding-bottom: 10px;
+}
+.share-modal-link {
+  cursor: pointer;
+  margin-left: 25px;
+  padding-right: 12px;
+  position: relative;
+}
+.share-modal-link:after {
+  background: #f78f20 url(http://www.tillamook.com/img/global/arrow-down.png) 0 0 no-repeat;
+  content: '';
+  height: 4px;
+  position: absolute;
+  right: 0;
+  top: 8px;
+  width: 7px;
+}
+.share-modal .social-control {
+  background: #fff;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: none;
+  left: 12px;
+  padding: 20px 17px;
+  position: absolute;
+  top: 108%;
+  z-index: 2;
+}
+.share-modal.show .social-control {
+  display: block;
+}
+.social-icon.facebook {
+  background-position: 0 0;
+}
+footer .social-icon.facebook,
+.social-icon.facebook:hover {
+  background-color: #3b5998;
+}
+.social-icon.twitter {
+  background-position: -37px 0;
+}
+footer .social-icon.twitter,
+.social-icon.twitter:hover {
+  background-color: #55acee;
+}
+.social-icon.pinterest {
+  background-position: -74px 0;
+}
+footer .social-icon.pinterest,
+.social-icon.pinterest:hover {
+  background-color: #cb2027;
+}
+.social-icon.instagram {
+  background-position: -111px 0;
+}
+footer .social-icon.instagram,
+.social-icon.instagram:hover {
+  background-color: #9b7764;
+}
+.social-icon.youtube {
+  background-position: -148px 0;
+}
+footer .social-icon.youtube,
+.social-icon.youtube:hover {
+  background-color: #b31217;
+}
+.social-icon.gplus {
+  background-position: -185px 0;
+}
+footer .social-icon.gplus,
+.social-icon.gplus:hover {
+  background-color: #de4a32;
+}
+.social-icon.email {
+  background-position: -222px 0;
+}
+.social-icon.print {
+  background-position: -259px 0;
+}
+footer .social-icon.email {
+  background-color: #c4cdcf;
+}
+.social-icon.email:hover,
+.social-icon.print:hover {
+  background-color: #a5afb1;
+}
+/* ----- Module Social Icons ----- */
+.social .module-content {
+  text-align: left;
+}
+.social .module-content:after {
+  background-image: url(../img/global/icons-social.png);
+  background-repeat: no-repeat;
+  border-radius: 28px;
+  bottom: 12px;
+  content: '';
+  height: 28px;
+  left: 50%;
+  margin-left: -14px;
+  position: absolute;
+  width: 28px;
+  z-index: 1;
+}
+.facebook .module-content:after {
+  background-color: #3b5998;
+  background-position: 0 -37px;
+}
+.twitter .module-content:after {
+  background-color: #55acee;
+  background-position: -28px -37px;
+}
+.pinterest .module-content:after {
+  background-color: #cb2027;
+  background-position: -56px -37px;
+}
+.instagram .module-content:after {
+  background-color: #9b7764;
+  background-position: -84px -37px;
+}
+.youtube .module-content:after {
+  background-color: #b31217;
+  background-position: -112px -37px;
+}
+.gplus .module-content:after {
+  background-color: #de4a32;
+  background-position: -140px -37px;
+}
+/* ----- Module Social Text Color ----- */
+.type-vertical-halves.facebook .module-content {
+  color: #3b5998;
+}
+.type-vertical-halves.twitter .module-content {
+  color: #55acee;
+}
+.type-vertical-halves.pinterest .module-content {
+  color: #cb2027;
+}
+.type-vertical-halves.instagram .module-content {
+  color: #9b7764;
+}
+.type-vertical-halves.youtube .module-content {
+  color: #b31217;
+}
+.type-vertical-halves.gplus .module-content {
+  color: #de4a32;
+}
+@media screen and (max-width: 35.5em) {
+  .social-control {
+    text-align: center;
+  }
+}
+@media screen and (min-width: 35.5em) {
+  .col-7 .social-control {
+    text-align: right;
+  }
+  .type-tour .social-control {
+    left: 0;
+  }
+}
+@media screen and (min-width: 35.5em) and (max-width: 48em) {
+  .social-label {
+    margin-right: 2px;
+  }
+  .social-icon {
+    margin-left: 1px;
+    margin-right: 1px;
+  }
+}
+/*@media screen and (min-width: 48.0625em) {
+}
+@media screen and (min-width: 64em) {
+	.social-control {
+		margin-right: -3px;
+	}
+}*/
+@media screen and (min-width: 1200px) {
+  .footer-links {
+    float: left;
+  }
+  .global-sign-up,
+  footer .social-control {
+    float: right;
+  }
+  .copyright {
+    display: inline-block;
+    margin-top: 10px;
+  }
+  footer .button {
+    transition: background 0.25s ease-out;
+  }
+  .type-tour .social-control {
+    left: 20px;
+  }
+  .social-label {
+    display: inline-block;
+    font-size: 14px;
+    /*		font-family:'DINNextRoundedLTW01-Med',arial,sans-serif;*/
+    font-family: DINNextRoundedLTW01-Med, arial, sans-serif;
+    line-height: 37px;
+    margin-right: 5px;
+    vertical-align: bottom;
+  }
+  .social-label ~ .social-label {
+    margin-left: 22px;
+    text-transform: uppercase;
+  }
+}
+@media screen and (max-width: 1200px) {
+  footer {
+    text-align: center;
+  }
+  .global-sign-up,
+  footer .social-control {
+    display: inline-block;
+  }
+  footer .copyright {
+    display: block;
+    margin-top: 18px;
+  }
+  .footer-links {
+    margin-bottom: 18px;
+  }
+}
+/* =iPad
+----------------------------------------------------*/
+@media screen and (max-width: 1200px) {
+  #tabletDetect {
+    display: block;
+  }
+  .desktop,
+  span.desktop {
+    display: none !important;
+  }
+  .tablet {
+    display: block !important;
+  }
+  span.tablet {
+    display: inline !important;
+  }
+  .tablet.landscape {
+    display: none;
+  }
+  /*
+ * RESET Layouts
+ */
+  /* ----- Section ----- */
+  .inner {
+    width: 674px;
+  }
+  .inner-extras {
+    width: 700px;
+    /* <= plus left and right margins of columns*/
+  }
+  /* ----- Columns w/Margin ----- */
+  .span-7,
+  .span-11 {
+    float: left;
+    margin: 0 13px;
+  }
+  .span-7 {
+    width: 194px;
+  }
+  .span-11 {
+    width: 303px;
+  }
+  /*
+ * GLOBALS
+ */
+  p {
+    font-size: 18px;
+  }
+  .pull-quote {
+    font-size: 24px;
+  }
+  #hero {
+    min-height: 502px;
+  }
+  #hero h1,
+  #hero h2,
+  #hero h3,
+  #hero h4,
+  #hero h5,
+  #hero h6 {
+    font-size: 50px;
+  }
+  #hero .foreground {
+    background-position: center center;
+    background-size: cover;
+    min-height: 502px;
+  }
+  /*Buckets*/
+  #buckets .bucket p {
+    font-size: 17px;
+    height: 120px;
+    margin-bottom: 20px;
+  }
+  /*
+ * HEADER
+ */
+  .ingredients-header {
+    top: 102px;
+  }
+  .ingredients-header h1 {
+    margin-left: 0;
+  }
+  .ingredients-header #trigger-menu {
+    padding-top: 25px;
+    padding-left: 36px;
+  }
+  .ingredients-header #trigger-menu:after {
+    right: 24px;
+  }
+  /*
+ * FOOTER
+ */
+  footer h6 {
+    font-size: 17px;
+  }
+  footer .foux-input {
+    font-size: 16px;
+    padding: 7px 14px;
+    width: 310px;
+  }
+  footer #social > a {
+    margin-left: 16px;
+  }
+  /* 
+ * NAVIGATION 
+ */
+  #utility ul {
+    margin: 20px 0;
+  }
+  #utility a {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  /* 
+ * DETAIL 
+ */
+  .detail-description p {
+    max-width: 410px;
+  }
+  .detail-section .title:before {
+    width: 634px;
+  }
+  .section-1-custom .inner-extras .row-1 {
+    width: 660px;
+  }
+  .section-1-custom .row-1 .span-7 {
+    width: 303px;
+  }
+  .section-1-custom .row-1 .column-2 {
+    margin: 0;
+    width: 194px;
+  }
+  .section-1-custom .row-1 .column-2 .pull-quote {
+    padding: 20px 0;
+    font-size: 24px;
+    line-height: 30px;
+  }
+  .section-1-custom .row-1 .column-2-1 {
+    margin-bottom: 45px;
+  }
+  .section-1-custom .row-2 .tall-pull-quote {
+    height: 345px;
+  }
+  .section-1-custom .row-2 .tall-pull-quote h6 {
+    font-size: 35px;
+    margin-bottom: 6px;
+  }
+  .section-1-custom .row-2 .tall-pull-quote .subtitle-1 {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  .section-1-custom .row-2 .tall-pull-quote .subtitle-2 {
+    font-size: 21px;
+    line-height: 26px;
+  }
+  .section-3-custom .span-7 {
+    width: 192px;
+  }
+  #bottom-navigation .previous,
+  #bottom-navigation .next {
+    line-height: 110px;
+    font-size: 17px;
+  }
+  #bottom-navigation .social-control {
+    padding: 37px 0;
+  }
+}
+@media screen and (max-width: 1200px) and screen and (orientation: landscape) {
+  .tablet.portrait {
+    display: none;
+  }
+  .tablet.landscape {
+    display: block;
+  }
+}
+/* =Mobile
+----------------------------------------------------*/
+@media screen and (max-width: 750px) {
+  #mobileDetect {
+    display: block;
+  }
+  .desktop,
+  .tablet,
+  span.tablet {
+    display: none !important;
+  }
+  .mobile {
+    display: block !important;
+  }
+  span.mobile {
+    display: inline !important;
+  }
+  .mobile.landscape {
+    display: none;
+  }
+  body {
+    width: 100%;
+  }
+  html,
+  body {
+    height: 100%;
+  }
+  /*
+ * Hidden
+ */
+  header h2 {
+    display: none;
+  }
+  /*
+ * Layouts
+ */
+  .inner {
+    width: auto;
+    padding: 0 34px;
+  }
+  .inner-extras {
+    width: auto;
+    margin: 0;
+    /* <= no more columns on mobile*/
+    padding: 0 34px;
+  }
+  .span-7,
+  .span-11 {
+    float: none;
+    margin: 0;
+  }
+  .span-7 {
+    clear: both;
+    width: 100%;
+  }
+  .span-11 {
+    clear: both;
+    width: 100%;
+  }
+  /*
+ * Global
+ */
+  p {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .pull-quote {
+    font-size: 22px;
+  }
+  .pull-quote.no-borders {
+    padding: 0;
+  }
+  .bottom-image {
+    position: relative;
+    bottom: auto;
+    left: auto;
+  }
+  .offset-bottom-100 {
+    padding-bottom: 25px;
+  }
+  .margin-bottom-45 {
+    margin-bottom: 0;
+  }
+  #hero {
+    min-height: 400px;
+  }
+  #hero .inner {
+    padding: 0 20px;
+  }
+  #hero h1,
+  #hero h2,
+  #hero h3,
+  #hero h4,
+  #hero h5,
+  #hero h6 {
+    font-size: 26px;
+    line-height: 34px;
+    margin-bottom: 10px;
+    margin-top: 48px;
+    padding: 0;
+  }
+  #hero .foreground {
+    background-position: center center;
+    background-size: cover;
+    min-height: 400px;
+  }
+  #hero .description {
+    margin-bottom: 24px;
+    padding: 0;
+  }
+  #hero .description p {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .button {
+    font-size: 13px;
+    padding: 14px 40px;
+  }
+  /*
+ * Header
+ */
+  header h1 {
+    margin-top: 23px;
+  }
+  header #logo {
+    height: 15px;
+    width: 75px;
+  }
+  header #trigger-menu {
+    padding-top: 25px;
+  }
+  /*
+ * Footer
+ */
+  footer #social {
+    clear: both;
+    float: none;
+    margin: 0 -9%;
+    text-align: center;
+    width: 116%;
+  }
+  footer #social > a {
+    background-position: center;
+    float: none;
+    display: inline-block;
+    margin: 0;
+    width: 19%;
+  }
+  /*
+ * Homepage
+ */
+  #buckets {
+    padding-top: 25px;
+  }
+  #buckets h1,
+  #buckets h2,
+  #buckets h3,
+  #buckets h4,
+  #buckets h5,
+  #buckets h6 {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+  #buckets .bucket {
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+  #buckets .bucket p {
+    min-height: 0;
+    height: auto;
+  }
+  #buckets .bucket img {
+    width: 100%;
+  }
+  /*
+ * Detail
+ */
+  .detail-section .title {
+    padding: 45px 0;
+  }
+  .detail-section .title:before {
+    left: 0;
+    width: 100%;
+  }
+  .detail-section .title hgroup {
+    padding: 0 20px;
+  }
+  .detail-section .pull-quote,
+  .detail-section img,
+  .detail-section p,
+  .detail-section video {
+    margin-bottom: 25px;
+  }
+  .section-1-custom .inner-extras .row-1 {
+    margin-bottom: 25px;
+    width: auto;
+  }
+  .section-1-custom .inner-extras .row-1 .span-7 {
+    width: auto;
+  }
+  .section-1-custom .inner-extras .row-1 .column-2 {
+    height: auto !important;
+    margin-bottom: 25px;
+    width: 100%;
+  }
+  .section-1-custom .inner-extras .row-1 .column-2 .pull-quote {
+    margin-bottom: 25px;
+  }
+  .section-1-custom .inner-extras .row-2 {
+    margin-bottom: 0;
+  }
+  .section-2-custom {
+    margin-bottom: 0;
+  }
+  .section-3-custom {
+    padding-bottom: 25px;
+  }
+  .section-3-custom .span-7 {
+    width: 100%;
+  }
+  .section-3-custom .column-3,
+  .section-3-custom .column-3 p {
+    margin-bottom: 0;
+  }
+  #detail-section-2,
+  #detail-section-3 {
+    border-top: 1px solid #e1e1e1;
+  }
+  /*
+ * Bottom Navigation
+ */
+  #bottom-navigation {
+    padding-top: 0;
+  }
+  #bottom-navigation .previous,
+  #bottom-navigation .next {
+    font-size: 16px;
+    padding: 40px 0;
+    line-height: 1em;
+    max-width: 50%;
+  }
+  #bottom-navigation .previous {
+    text-align: left;
+  }
+  #bottom-navigation .next {
+    text-align: right;
+  }
+  #bottom-navigation .social-control {
+    padding-bottom: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 750px) and screen and (orientation: landscape) {
+  .mobile.portrait {
+    display: none;
+  }
+  .mobile.landscape {
+    display: block;
+  }
+}

@@ -1,0 +1,447 @@
+<div ng-class="boolChangeClass ? 'viewbody1' :'viewbodyindexdescription'" >
+<!-- <div class="col-md-12">
+<div zoom2 big="productdescription.productId" tiny="productdescription.productId" small="productdescription.productId" alt="" title="Test"></div>
+</div> -->
+
+<div class="col-md-9 ">
+
+<div class="col-md-12 row ">
+<div class="col-sm-3 col-md-3 ">
+<div class="col-sm-12 col-md-12 descriptionsmallimg " >
+<img src="./img/{{productdescription.productId}}.jpeg"
+class="img-responsive   " data-toggle="magnify" alt="" style="width:100%;cursor:pointer" ng-click="changeimage(productdescription.productId,'0')">
+</div>
+<div class="col-sm-12 col-md-12 descriptionsmallimg ">
+<img src="./img/{{productdescription.productId}}a.jpeg"
+class="img-responsive  " data-toggle="magnify" style="width:100%;cursor:pointer" alt="" ng-click="changeimage(productdescription.productId,'a')">
+</div>
+<div class="col-sm-12 col-md-12 descriptionsmallimg ">
+<img src="./img/{{productdescription.productId}}b.jpeg"
+class="img-responsive  " data-toggle="magnify"style="width:100%;cursor:pointer"  alt="" ng-click="changeimage(productdescription.productId,'b')">
+</div>
+
+
+
+
+
+
+<!-- <table>
+<tr style="height:100px">
+<td>
+<img src="./img/{{productdescription.productId}}.jpeg"
+class="img  " data-toggle="magnify" alt="" style="height:100%">
+</td>
+</tr>
+<tr style="height:100px">
+<td>
+<img src="./img/{{productdescription.productId}}.jpeg"
+class="img-responsive descriptionimage " data-toggle="magnify" alt="">
+</td>
+</tr>
+<tr style="height:100px">
+<td>
+<img src="./img/{{productdescription.productId}}.jpeg"
+class="img-responsive descriptionimage " data-toggle="magnify" alt="">
+</td>
+</tr>
+
+</table> -->
+
+</div>
+<div class="col-sm-6 col-md-6 ">
+<div class="thumbnail shadow" style="border:none">
+<div class="mag">
+
+<h4 class="text-center"><span class="label label-info">{{productdescription.productName}}</span></h4>
+<header>
+    <hgroup>
+      <h1>{{productdescription.productName}}</h1>
+      <h4>{{productdescription.shortDescription}}</h4>
+    </hgroup>
+  </header>
+<img src="./img/{{descriptionimage}}.jpeg"
+class="img-responsive descriptionimage " data-toggle="magnify" alt="">
+</div>
+
+<div class="caption">
+<div class="row">
+<div class="col-md-6 ">
+<h2>{{productdescription.productName}}</h2>
+<p>{{productdescription.shortDescription}}</p>
+</div>
+<div class="col-md-6 price">
+<h3>
+<label>
+							<span style="font-size: 24px; font-weight: bold; color: #00CC00;"><span
+								class="fa fa-inr"></span>{{productdescription.salePrice}}</span>
+							<p style="font-size: 20px; text-decoration: line-through ;color: #f53700;">
+								MSRP:<span class="fa fa-inr"></span>30
+							</p>
+						</label></h3>
+</div>
+<div class="form-inline " >
+<div class="col-md-12" style="width:100% ;color:#f53700" ng-hide="productdescription.numberOfItemsIncart!=0" ng-click="addTOCart(productdescription)">
+<a class="btn btn-primary btn-product" style="background-color:#f53700;color:white"><span class="fa fa-shopping-cart" style="color:white"></span> Add to
+Cart</a>
+</div>
+
+<div class=" col-md-12 form-group " ng-show="productdescription.numberOfItemsIncart!=0" style="margin-left:100px">
+
+<button type="button" class="btn btn-danger btn-number" data-type="minus" data-field="quant[2]" ng-click="removeFromCart(productdescription)">
+<span class="glyphicon glyphicon-minus"></span>
+</button>
+
+<label class="form-control input-number" style="width:20%"
+ ng-model="productdescription.numberOfItemsIncart">{{productdescription.numberOfItemsIncart}} </label>
+
+<button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]" ng-click="addTOCart(productdescription)">
+<span class="glyphicon glyphicon-plus"></span>
+</button>
+
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+</div>
+
+<p></p>
+
+</div>
+
+
+
+
+</div>
+	
+</div>
+
+	<div class="col-md-2" >
+		<div class="col-md-2" style="position:fixed;z-index:444">
+		<div class="panel-group" id="accordian">
+			<div class="panel  panel-default"
+				style="width: 150%; margin-right: 10px">
+				<div class="panel-heading" data-toggle="collapse"
+					data-parent="#accordian" href="#yourorder">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+							href=""><span class="glyphicon glyphicon-plus"></span>
+							Your Order</a>
+					</h4>
+				</div>
+				<div id="yourorder" class="panel-collapse collapse in">
+					<div class="panel " >
+						<div class="panel-body" style="overflow:scroll; height:300px;" >
+							<div class="text-warning" ng-show="cart.products.length==0">
+								Noting ordered yet !</div>
+							<ul class="list-group ">
+								<li class=" col-md-12 list-group-item"
+									ng-repeat="productCart in cart.products">
+									<div class=" col-md-3 label label-success fa fa-rupee">{{productCart.totalPriceInCart}}</div>
+									<div class="col-md-7">{{productCart.productName}}</div>
+									<div class="col-md-1 pull-right">
+									<button type="button" class="  btn-danger btn-xs  " 
+										 ng-click="removeProduct($index)">
+										{{productCart.numberOfItemsIncart}}<span class="glyphicon glyphicon-trash"></span>
+									</button>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="panel-footer" ng-show="cart.products.length">
+							<div class="label label-danger" style="padding-top:10px;padding-left:20px;background-color:#f53700;font-size:20px">
+								Total: <i class="fa fa-rupee">{{cart.subtotal}}</i>
+							</div>
+						</div>
+						<div class="panel-footer" ng-show="cart.products.length">
+							<div class="text-muted">Happy Shopping!</div>
+						</div>
+						<div class="pull-right">
+							<span class="btn btn-default" ng-click="clearOrder()"
+								ng-disabled="!cart.products.length">Clear</span> <span
+								class="btn btn-success" ng-click="open()" data-toggle="modal"
+								ng-disabled="!cart.products.length">Checkout</span> 
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</br>
+</br>
+</br>
+<h1 style="margin-top:{{scrollyvalue}}">  {{scrollyvalue}}</h1>
+<div class="col-md-9 row " style="margin=top:200px">
+   <uib-tabset justified="true">
+    <uib-tab heading="Description">
+	<div  style="font-size:20px ;margin:30px;color:green">
+	{{productdescription.description}}
+</div>
+	</uib-tab>
+	
+    <uib-tab heading="Features"><div   style="font-size:20px ;margin:30px;color:green">{{productdescription.longDescription}}
+	</div>
+	</uib-tab>
+    <uib-tab heading="Reviews"><div   style="font-size:20px ;margin:30px;color:green">{{productdescription.productFeature}}
+	</div>
+	</uib-tab>
+  </uib-tabset>
+ 
+
+</div >
+
+
+
+
+ 
+ </div>
+ 
+ 
+ 
+<div class="row col-md-12 " style="margin-top:100px">
+<div  ><h2>More Products from <b>{{productdescription.productCatagory}}</b></h2></div>
+	<div class="col-md-8" style="width: 60%; margin-top:50px">
+		<div class="col-sm-6 col-lg-4  "
+			ng-repeat="product in items">
+			<div class="thumbnail shadow" >
+			
+		
+			
+				
+				
+				
+					<img lazy-src="./img/{{product.productId}}.jpeg" ng-click="displayproduct(product) "  class="img-responsive catalougeimg" >
+					
+					
+				
+				<div class="caption">
+				
+				
+				<div class="row">
+				
+				<div class="form-inline " style="text-align:center;">
+								<div class="form-group" >
+									<button type="button" class="btn btn-default  btn-circle"
+										data-type="minus" data-field="quant[2]"
+										ng-click="removeFromCart(product)">
+										<span class="glyphicon glyphicon-minus small"></span>
+									</button>
+									<span class="badge " style="background-color:white;color:#f53700;font-size:20px ;margin-left:5px" ng-show="product.numberOfItemsIncart>0">{{product.numberOfItemsIncart}}</span>
+									<button type="button" class="btn btn-default  btn-circle"
+										data-type="plus" data-field="quant[2]"
+										ng-click="addTOCart(product)">
+										<span class="glyphicon glyphicon-plus"></span>
+									</button>
+									
+								</div>
+							</div>
+				
+				</div>
+					<div class="row">
+					<div class="col-md-12 " style="height:40px" >
+					<span style="text-align:left;font-size: 12px;font: bold"><span style="font-size: 12px;color:gray ;">{{product.brand}}</span>{{product.productName}}</span>
+					
+						</div>
+						<div class="col-md-12">
+						
+					</div>
+							
+						<div class="col-md-12">
+						
+<span style="font-size: 12px; font-weight: bold; color: #303030;"><span
+								class="fa fa-inr"></span>{{product.salePrice}}</span>
+							<span style="font-size: 12px;  color:#707070 ;margin-left:2px " >
+								 MSRP:<span class="fa fa-inr" style="text-decoration: line-through ;">{{product.mrp}}</span></span>
+								
+							
+							
+						</div>
+						<div class="col-md-12" style="text-align:right" >
+							<div class="" >
+					<span class="new-product" ng-show="product.isNew=='Y'"> NEW</span><span
+						class="discount" style="background-color:#f53700">{{product.discount}}% OFF</span>
+				</div>
+						</div>
+						
+						
+					</div>
+					<div style="font-size: 15px">
+						<span >{{product.productVender}}</span>
+						<strong>{{product.shortDescription}}</strong>
+					</div>
+					
+						<p></p>
+					</div>
+					
+			</div>
+		</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+ 
+ 
+ 
+ <div class="row col-md-12" style="margin-top:100px">
+ 
+ <div><h2>More Products from <b>{{productdescription.productSubCatagory}}</b></h2></div>
+	<div class="col-md-8" style="width: 60%; margin-top:50px">
+		<div class="col-sm-6 col-lg-4  "
+			ng-repeat="product in itemsBybrand">
+			<div class="thumbnail shadow" >
+			
+				
+				
+					<img lazy-src="./img/{{product.productId}}.jpeg" ng-click="displayproduct(product) "  class="img-responsive catalougeimg" >
+					
+					
+				
+				<div class="caption">
+				
+				
+				<div class="row">
+				
+				<div class="form-inline " style="text-align:center;">
+								<div class="form-group" >
+									<button type="button" class="btn btn-default  btn-circle"
+										data-type="minus" data-field="quant[2]"
+										ng-click="removeFromCart(product)">
+										<span class="glyphicon glyphicon-minus small"></span>
+									</button>
+									<span class="badge " style="background-color:white;color:#f53700;font-size:20px ;margin-left:5px" ng-show="product.numberOfItemsIncart>0">{{product.numberOfItemsIncart}}</span>
+									<button type="button" class="btn btn-default  btn-circle"
+										data-type="plus" data-field="quant[2]"
+										ng-click="addTOCart(product)">
+										<span class="glyphicon glyphicon-plus"></span>
+									</button>
+									
+								</div>
+							</div>
+				
+				</div>
+					<div class="row">
+					<div class="col-md-12 " style="height:40px" >
+					<span style="text-align:left;font-size: 12px;font: bold"><span style="font-size: 12px;color:gray ;">{{product.brand}}</span>{{product.productName}}</span>
+					
+						</div>
+						<div class="col-md-12">
+						
+					</div>
+							
+						<div class="col-md-12">
+						
+<span style="font-size: 12px; font-weight: bold; color: #303030;"><span
+								class="fa fa-inr"></span>{{product.salePrice}}</span>
+							<span style="font-size: 12px;  color:#707070 ;margin-left:2px " >
+								 MSRP:<span class="fa fa-inr" style="text-decoration: line-through ;">{{product.mrp}}</span></span>
+								
+							
+							
+						</div>
+						<div class="col-md-12" style="text-align:right" >
+							<div class="" >
+					<span class="new-product" ng-show="product.isNew=='Y'"> NEW</span><span
+						class="discount" style="background-color:#f53700">{{product.discount}}% OFF</span>
+				</div>
+						</div>
+						
+						
+					</div>
+					<div style="font-size: 15px">
+						<span >{{product.productVender}}</span>
+						<strong>{{product.shortDescription}}</strong>
+					</div>
+					
+						<p></p>
+					</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+
+
+
+<div class="row col-md-12" style="margin-top:100px">
+ <div><h2>More Products from <b>{{productdescription.brand}}</b></h2></div>
+	<div class="col-md-8" style="width: 60%; margin-top:50px">
+		<div class="col-sm-6 col-lg-4  "
+			ng-repeat="product in itemsBySubcategory">
+			<div class="thumbnail shadow" >
+			
+				
+					<img lazy-src="./img/{{product.productId}}.jpeg" ng-click="displayproduct(product) "  class="img-responsive catalougeimg" >
+					
+					
+				
+				<div class="caption">
+				
+				
+				<div class="row">
+				
+				<div class="form-inline " style="text-align:center;">
+								<div class="form-group" >
+									<button type="button" class="btn btn-default  btn-circle"
+										data-type="minus" data-field="quant[2]"
+										ng-click="removeFromCart(product)">
+										<span class="glyphicon glyphicon-minus small"></span>
+									</button>
+									<span class="badge " style="background-color:white;color:#f53700;font-size:20px ;margin-left:5px" ng-show="product.numberOfItemsIncart>0">{{product.numberOfItemsIncart}}</span>
+									<button type="button" class="btn btn-default  btn-circle"
+										data-type="plus" data-field="quant[2]"
+										ng-click="addTOCart(product)">
+										<span class="glyphicon glyphicon-plus"></span>
+									</button>
+									
+								</div>
+							</div>
+				
+				</div>
+					<div class="row">
+					<div class="col-md-12 " style="height:40px" >
+					<span style="text-align:left;font-size: 12px;font: bold"><span style="font-size: 12px;color:gray ;">{{product.brand}}</span>{{product.productName}}</span>
+					
+						</div>
+						<div class="col-md-12">
+						
+					</div>
+							
+						<div class="col-md-12">
+						
+<span style="font-size: 12px; font-weight: bold; color: #303030;"><span
+								class="fa fa-inr"></span>{{product.salePrice}}</span>
+							<span style="font-size: 12px;  color:#707070 ;margin-left:2px " >
+								 MSRP:<span class="fa fa-inr" style="text-decoration: line-through ;">{{product.mrp}}</span></span>
+								
+							
+							
+						</div>
+						<div class="col-md-12" style="text-align:right" >
+							<div class="" >
+					<span class="new-product" ng-show="product.isNew=='Y'"> NEW</span><span
+						class="discount" style="background-color:#f53700">{{product.discount}}% OFF</span>
+				</div>
+						</div>
+						
+						
+					</div>
+					<div style="font-size: 15px">
+						<span >{{product.productVender}}</span>
+						<strong>{{product.shortDescription}}</strong>
+					</div>
+					
+						<p></p>
+					</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+ 

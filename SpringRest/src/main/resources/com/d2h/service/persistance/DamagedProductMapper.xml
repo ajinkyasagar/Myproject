@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.d2h.service.persistance.DamagedProductMapper">
+    
+	<cache />
+
+	<insert id="insertDamagedProduct" parameterType="java.util.List">
+	INSERT INTO damagedproduct (
+		orderId,
+		productId,
+		quantity,
+		status,
+		reason,
+		damagedDate,
+		amount,
+		productName
+	) 
+	VALUES(
+	  <foreach  item="element" collection="list" open="" close="" separator="),(" >
+		#{element.orderId}, #{element.productId}, #{element.quantity}, #{element.status}, #{element.reason}, #{element.damagedDate}, #{element.amount}, #{element.productName}
+	</foreach>)
+</insert>
+	
+</mapper> 

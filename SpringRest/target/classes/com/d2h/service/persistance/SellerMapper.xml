@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.d2h.service.persistance.SellerMapper">
+    
+    <!-- <select id="selectCategoryById" parameterType="int" resultType="com.springriver.example.mybatis.bean.Category">
+	select category_name as categoryName from Category where category_id = #{id}
+</select> -->
+
+	<cache />
+
+	<insert id="insertSeller" parameterType="com.d2h.service.domain.Seller">
+		INSERT INTO Seller (name,  email, mobileNumber,message,product)
+		VALUE (#{name}, #{email}, #{mobileNumber} ,#{message},#{product})
+	</insert>
+	
+	<update id="updateSeller" parameterType="com.d2h.service.domain.Seller">
+		UPDATE Customer SET
+			firstName = #{firstName},
+			lastName = #{lastName},
+			email = #{email},
+			mobileNumber = #{mobileNumber},
+			password = #{password},
+			userId = #{userId},
+			customerLoginCreatedDate = #{customerLoginCreatedDate},
+			customerlastOrderDate = #{customerlastOrderDate}
+		WHERE mobileNumber = #{mobileNumber}
+	</update>
+</mapper> 

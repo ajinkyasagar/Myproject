@@ -1,0 +1,661 @@
+
+<div ng-class="boolChangeClass ? 'viewbody1' :'viewbody'"  >
+
+<!--  <nav id="nav">
+        <ol class="nav-primary">
+         <section >
+
+              <div class="row">
+                <div class="col-lg-12  text-center ">
+                    <h2>Select Category</h2>
+                    <hr class="" >
+                    <div class="row">
+                  
+				  
+				  
+				 <div ng-repeat="productCategory in categories" class=" col-md-1 col-lg-1 col-sm-1 text-center divcategory" style="padding:20px">
+          
+			   <img category class="img-circle img-responsive img-center menuimg"    src="{{productCategory.productUrl}}" alt="" ng-click="selectCategory(productCategory.categoryName)">
+              
+				<h5 style="text-align:center">{{productCategory.categoryName}}
+                   
+                </h5>
+                
+            </div>
+				   
+			      </div>
+				
+                   
+                </div>
+               
+            </div>
+           <hr class="" ></hr>	
+        
+	</section>
+		 </ol>   
+    </nav> -->
+<section>
+  <div >
+    <uib-carousel interval="myInterval" no-wrap="noWrapSlides" class="carousel-fade"  >
+      <uib-slide ng-repeat="slide in slides" active="slide.active" >
+        <img ng-src="{{slide.image}}" style="margin:auto;width:80%;height:600px" >
+        <div class="carousel-caption">
+          <h4>Slide {{$index}}</h4>
+          <p>{{slide.text}}</p>
+        </div>
+      </uib-slide>
+    </uib-carousel>
+  </div>
+</section>
+
+<section >
+              
+                <div style="text-align:center;margin-top:50px">
+                    <h2>Select Category</h2>
+                    <hr class="" >
+                    <div>
+					<div class="row">
+                  
+				  
+				  <div class="col-lg-12  text-center ">
+				 <div ng-repeat="productCategory in categories" class="col-lg-3 col-sm-3 text-center divcategory" >
+          
+			   <img category class=" img-responsive  categoryimg"    src="./img/{{productCategory.idproductcategory}}.jpeg" alt="" ng-click="selectCategory(idproductcategory.categoryName)">
+              
+				<h2 >{{productCategory.categoryName}}
+                   
+                </h2>
+                
+            </div>
+			<hr class="" >
+		           </div>
+				
+                   
+                </div>
+               
+         
+           
+        
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<div  style="margin-top:100px">
+<h3 class="premium-title">Brand Loving</h3>
+<h5 class="sub-heading">Trendsetting, contemporary and unique; brands we adore and vouch for, to keep you strong on the fashion radar. </h5>
+</div>
+<div class="row" style="height:390px;
+    background-color:#FFFFFF;
+    margin-top:10px;
+    overflow: hidden;">
+  <div class="col-xs-12 col-md-3" style="padding-right:0px"><img ng-src="./img/1-B1338_Women_Mid-Middle-Banner_Ethnic-White_01042016.jpg"  style="height:390px;width:100%" ></div>
+  <div class="col-xs-6 col-md-9" style="padding-left:0px"><img ng-src="./img/extra-02189558.jpg"  style="height:390px">
+</div>
+</div>
+<div class="row" style="height:390px;
+    background-color:#FFFFFF;
+    margin-top:60px;
+    overflow: hidden;">
+  <div class="col-md-9 "><img ng-src="./img/view2.jpg"  style="height:390px;width:100%"></div>
+  <div class="col-md-3 "><img ng-src="./img/B1231_Women_Experience-Store-4_SS16-Summer-Collection_15032016_Revised.jpg"  style="height:390px;;">
+</div>
+</div>
+
+
+<div class="row" style="height:390px;
+    background-color:#FFFFFF;
+    ;
+    overflow: hidden;">
+  <div class="col-md-9 "><img ng-src="./img/displayimage1.jpg"  style="height:390px;width:100%"></div>
+ 
+</div>
+
+<div class="row" style="height:390px;
+    background-color:#FFFFFF;
+    ;
+    overflow: hidden;">
+  <div class="col-md-9 col-md-offset-3"><img ng-src="./img/displayimage2.jpg"  style="height:390px;width:100%"></div>
+ 
+</div>
+
+<div class="row" style="height:390px;
+    background-color:#FFFFFF;
+    ;
+    overflow: hidden;">
+  <div class="col-md-9 "><img ng-src="./img/displayimage3.jpg"  style="height:390px;width:100%"></div>
+ 
+</div>
+
+<div class="row" style="height:390px;
+    background-color:#FFFFFF;
+    ;
+    overflow: hidden;">
+  <div class="col-md-9 col-md-offset-3"><img ng-src="./img/displayimage4.jpg"  style="height:390px;width:100%"></div>
+ 
+</div>
+
+
+</div>
+
+
+
+<section style="margin-top:30px" >
+	<div class="container-fluid">
+		<div class="row ">
+<div class="col-md-3  "  ng-repeat="i in imagearray" >
+			<div class="col-md-3 thumbnail ">
+				
+				
+					<img ng-src="./img/{{i}}.jpeg"  style="max-width:100%;
+max-height:100%;">
+					
+
+			
+				
+				
+				
+			 </div>
+			</div>
+			</div>
+			
+		
+	 </div>
+</section>
+
+
+
+<section >
+              
+                <div style="text-align:center;margin-top:50px">
+                    <h2>Select Category</h2>
+                    <hr class="" >
+                    <div>
+					<div class="row">
+                  
+				  
+				  <div class="col-lg-12  text-center ">
+				 <div ng-repeat="productCategory in categories" class="col-lg-3 col-sm-3 text-center divcategory" style="padding-left:2px;padding-right:2px" >
+          
+			   <img  class=" img-responsive  categoryimg1"    src="./img/{{productCategory.idproductcategory}}.jpg" alt="" ng-click="selectCategory(idproductcategory.categoryName)">
+              
+				<h2 >{{productCategory.categoryName}}
+                   
+                </h2>
+                
+            </div>
+			<hr class="" >
+		           </div>
+				
+                   
+                </div>
+               
+         
+           
+        
+</section>
+
+
+<section style="margin-top:30px" >
+	<div class="container-fluid">
+		<div class="row ">
+<div class="col-md-3  " >
+			<div class="col-md-3 thumbnail " >
+				
+				
+					<img ng-src="./img/1-B1338_Women_Mid-Middle-Banner_Ethnic-White_01042016.jpg"  style="max-width:100%;
+max-height:100%;">
+					
+
+			
+				
+				
+				
+			 </div>
+			 <div class="bannerDisc" ></div>
+			 <div class="prdListDisc">
+      <div class="lft" style="width:73%">
+        <h2>New Beginnings</h2>Chikan-Embroidered Cotton Dupattas &amp; Stoles</div>
+    <div class="rgt date"><span class="shopNow">SHOP NOW</span></div>
+    </div>
+	
+	
+			</div>
+			</div>
+			
+		
+	 </div>
+</section>
+
+
+
+
+
+
+<section >
+	<div class="container-fluid">
+		<div class="row ">
+
+			<div class="col-md-3  col-md-offset-3" >
+			
+
+				<div class="col-md-3 thumbnail"  style="height:100%"  >
+					
+					<img ng-src="./img/Indian-Women-By-Bahubali-Yellow-Embroidered-Saree-4452-4827031-1-pdp_slider_l.jpg" style="max-width:100%;
+max-height:100%;"   >
+					
+					
+				</div>
+				<div class="bannerDisc" ></div>
+			 <div class="prdListDisc">
+      <div class="lft" style="width:73%">
+        <h2>New Beginnings</h2>Chikan-Embroidered Cotton Dupattas &amp; Stoles</div>
+    <div class="rgt date"><span class="shopNow">SHOP NOW</span></div>
+    </div>
+			 </div>
+
+		 </div>
+	 </div>
+</section>
+
+<section >
+	<div class="container-fluid">
+		<div class="row ">
+
+			<div class="col-md-3  col-md-offset-6" >
+			
+
+				<div class="col-md-3 thumbnail"  style="height:100%"  >
+					
+					<img ng-src="./img/160314BEG064_Begampur_Handloom_Moodshot_1.jpg" style="max-width:100%;
+max-height:100%;"   >
+					
+					
+				</div>
+			 </div>
+
+		 </div>
+	 </div>
+</section>
+<section >
+	<div class="container-fluid">
+		<div class="row ">
+
+			<div class="col-md-3  col-md-offset-9" >
+			
+
+				<div class="col-md-3 thumbnail"  style="height:100%"  >
+					
+					<img ng-src="./img/160310ODE066_Ode_to_earth_Jew_Moodshot_1.jpg" style="max-width:100%;
+max-height:100%;"   >
+					
+					
+				</div>
+			 </div>
+
+		 </div>
+	 </div>
+</section>
+
+
+
+
+
+
+
+<hr></hr>
+<section style="padding-top:50px">
+
+    <uib-carousel interval="10000"  >
+      <uib-slide ng-repeat="top in topsellinglist"  >
+<div class="col-md-2" >
+</div >       
+	   <div class="col-md-8">
+		<div class="col-md-3"
+			ng-repeat="product in top">
+			<div class="thumbnail " >
+			
+				
+				
+				<div class="catalougeimg" ng-click="displayproduct(product) ">
+					<img src="./img/{{product.productId}}.jpeg" class="img-responsive ">
+				</div>
+			
+				
+			</div>
+		</div>
+	</div>
+      </uib-slide>
+    </uib-carousel>
+ 
+</section>
+
+
+
+<section style="padding-top:50px">
+
+    <uib-carousel interval="10000"  >
+      <uib-slide ng-repeat="max in maxdiscountlist"  >
+<div class="col-md-2" >
+</div >       
+	   <div class="col-md-8">
+		<div class="col-md-3"
+			ng-repeat="product in max">
+			<div class="thumbnail " >
+			
+				
+				
+				<div class="catalougeimg" ng-click="displayproduct(product) ">
+					<img src="./img/{{product.productId}}.jpeg" class="img-responsive ">
+				</div>
+			
+				
+			</div>
+		</div>
+	</div>
+      </uib-slide>
+    </uib-carousel>
+ 
+</section>
+     <!--    <hr></hr>
+<section style="padding-top:50px">
+ <div class="row" style="text-align:center">  <h1>Maximum Discount Products</h1></div>
+    
+	<div  id="carousel-dev">
+	<uib-carousel  interval="10000">
+      <uib-slide ng-repeat="max in maxdiscountlist"  >
+<div class="col-md-2">
+</div>       
+	   <div class="col-md-8" style="">
+		<div class="col-md-3"
+			ng-repeat="product in max">
+			<div class="thumbnail shadow" >
+			
+				<div class="promotion" >
+					<span class="new-product" ng-show="product.isNew=='Y'"> NEW</span><span
+						class="discount" style="background-color:#f53700">{{product.discount}}% OFF</span>
+				</div>
+				
+				<div class="catalougeimg" ng-click="displayproduct(product) ">
+					<img src="./img/{{product.productId}}.jpeg" class="img-responsive img">
+				</div>
+				<div class="caption">
+					<div class="row">
+					<div class="col-md-12 " style="height: 30px">
+					<span style="font-size: 14px;font-family: "Gill Sans"">{{product.productName}}</span>
+					</div>
+						<div class="col-md-6 " style="height: 30px">
+							<span style="font-size: 14px;font-family: "Gill Sans"">{{product.brand}}</span>
+						</div>
+						<div class="col-md-6" style="height: 50px;text-align:right" >
+							<span style="font-size: 24px; font-weight: bold; color: #00CC00;"><span
+								class="fa fa-inr"></span>{{product.salePrice}}</span>
+							<p style="font-size: 10px;  color:red" >
+								MSRP:<span class="fa fa-inr" style="text-decoration: line-through ;">{{product.mrp}}</span></p>
+						</div>
+						
+					</div>
+					<div style="font-size: 15px">
+						<span >{{product.productVender}}</span>
+						<strong>{{product.shortDescription}}</strong>
+					</div>
+					
+						<p></p>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-inline ">
+								<div class="form-group">
+									<button type="button" class="btn btn-danger small"
+										data-type="minus" data-field="quant[2]"
+										ng-click="removeFromCart(product)">
+										<span class="glyphicon glyphicon-minus small"></span>
+									</button>
+									<button type="button" class="btn btn-success btn-number"
+										data-type="plus" data-field="quant[2]"
+										ng-click="addTOCart(product)">
+										<span class="glyphicon glyphicon-plus"></span>
+									</button>
+									<span class="badge glyphicon glyphicon-shopping-cart" style="background-color:white;color:#f53700;font-size:20px ;margin-left:5px" ng-show="product.numberOfItemsIncart>0">{{product.numberOfItemsIncart}}</span>
+								</div>
+							</div>
+							
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+      </uib-slide>
+    </uib-carousel>
+ </div>
+</section>
+<hr></hr>
+
+
+
+<section style="padding-top:50px">
+ <div class="row" style="text-align:center">  <h1>Most Popular Products</h1></div>
+ <div  id="carousel-dev1">
+    <uib-carousel interval="10000"  >
+      <uib-slide ng-repeat="most in mostpopularlist" active="most.active" >
+<div class="col-md-2">
+</div>       
+	   <div class="col-md-8" style="">
+		<div class="col-md-3"
+			ng-repeat="product in most">
+			<div class="thumbnail shadow" >
+			
+				<div class="promotion" >
+					<span class="new-product" ng-show="product.isNew=='Y'"> NEW</span><span
+						class="discount" style="background-color:#f53700">{{product.discount}}% OFF</span>
+				</div>
+				
+				<div class="catalougeimg" ng-click="displayproduct(product) ">
+					<img src="./img/{{product.productId}}.jpeg" class="img-responsive img">
+				</div>
+				<div class="caption">
+					<div class="row">
+					<div class="col-md-12 " style="height: 30px">
+					<span style="font-size: 14px;font-family: "Gill Sans"">{{product.productName}}</span>
+					</div>
+						<div class="col-md-6 " style="height: 30px">
+							<span style="font-size: 14px;font-family: "Gill Sans"">{{product.brand}}</span>
+						</div>
+						<div class="col-md-6" style="height: 50px;text-align:right" >
+							<span style="font-size: 24px; font-weight: bold; color: #00CC00;"><span
+								class="fa fa-inr"></span>{{product.salePrice}}</span>
+							<p style="font-size: 10px;  color:red" >
+								MSRP:<span class="fa fa-inr" style="text-decoration: line-through ;">{{product.mrp}}</span></p>
+						</div>
+						
+					</div>
+					<div style="font-size: 15px">
+						<span >{{product.productVender}}</span>
+						<strong>{{product.shortDescription}}</strong>
+					</div>
+					
+						<p></p>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-inline ">
+								<div class="form-group">
+									<button type="button" class="btn btn-danger small"
+										data-type="minus" data-field="quant[2]"
+										ng-click="removeFromCart(product)">
+										<span class="glyphicon glyphicon-minus small"></span>
+									</button>
+									<button type="button" class="btn btn-success btn-number"
+										data-type="plus" data-field="quant[2]"
+										ng-click="addTOCart(product)">
+										<span class="glyphicon glyphicon-plus"></span>
+									</button>
+									<span class="badge glyphicon glyphicon-shopping-cart" style="background-color:white;color:#f53700;font-size:20px ;margin-left:5px" ng-show="product.numberOfItemsIncart>0">{{product.numberOfItemsIncart}}</span>
+								</div>
+							</div>
+							
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+      </uib-slide>
+    </uib-carousel>
+ </div>
+</section> -->
+
+<!-- <div style=" margin-top: 100px;
+    margin-bottom: 100px;
+   
+    ">
+<form class="form-inline ">
+
+<div class="form-group " id="city" >
+
+<input type="text" class="form-control location" disabled="disabled" value="Pune" id="exampleInputEmail3" placeholder="City">
+
+</div>
+
+
+    
+<div class="form-group " id="locations">
+
+<input type="text" ng-model="location.area" typeahead-template-url="customTemplate.html" typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control location typeahead" id="exampleInputPassword3" placeholder="Location">
+</div>
+
+<!-- <div style="text-align:center;">
+<button type="submit" ng-click="nextpage('index')"  style="height: 60px ;
+    padding-left: 120px;
+    padding-right: 120px;background-color:#f53700" class="btn  btn-success " ><i class="glyphicon glyphicon-shopping-cart glyphicon-align-left"></i> Start Shopping!</button>
+</div> 
+</form> 
+<script type="text/ng-template" id="customTemplate.html">
+<a ng-app="myapp" ng-controller="myCtrl">
+<div ng-click="info()" class="location" >
+
+<span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
+
+</div>
+</a>
+</a>
+</script>
+</div>-->
+
+ <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing" style="margin-bottom: 20px;
+  text-align: center;margin-top:170px">
+
+     
+     <!--  <div class="row" style="">
+        <div class="col-lg-4  ">
+          <img class="img-circle" src="http://comps.canstockphoto.com/can-stock-photo_csp13865563.jpeg" alt="Generic placeholder image" width="140" height="140">
+          <h2>Best Quality</h2>
+          <p>We Always Try to deliver best product in market</p>
+         
+        </div>
+        <div class="col-lg-4 ">
+          <img class="img-circle" src="http://previews.123rf.com/images/tombaky/tombaky0911/tombaky091100034/5925503-shop-basket-icon-Best-sale-Stock-Vector-price-sticker-seal.jpeg" alt="Generic placeholder image" width="140" height="140">
+          <h2>Best Price</h2>
+          <p>We are customer friendly organisaiton and we always give best rpoduct to customerr in best price</p>
+         
+        </div>
+        <div class="col-lg-4 ">
+          <img class="img-circle" src="http://comps.canstockphoto.com/can-stock-photo_csp11218265.jpeg" alt="Generic placeholder image" width="140" height="140">
+          <h2>Best Gurantee</h2>
+          <p>We can give guarantee about our products and our return policy is very easy</p>
+         
+        </div>
+      </div> -->
+<div class="container" >
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-diamond wow bounceIn text-primary"></i>
+                        <h3>Quality</h3>
+                        <p class="text-muted">We always believe in excellent Quality about our products.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-paper-plane wow bounceIn text-primary" data-wow-delay=".1s"></i>
+                        <h3>Ready to Ship</h3>
+                        <p class="text-muted">You can use this theme as is, or you can make changes!</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-newspaper-o wow bounceIn text-primary" data-wow-delay=".2s"></i>
+                        <h3>Up to Date</h3>
+                        <p class="text-muted">We update dependencies to keep things fresh.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".3s"></i>
+                        <h3>Made with Love</h3>
+                        <p class="text-muted">You have to make your websites with love these days!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      <!-- START THE FEATURETTES 
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5 col-md-pull-7">
+          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+
+
+     
+
+    </div><!-- /.container -->
+	
+	
+
+</div>

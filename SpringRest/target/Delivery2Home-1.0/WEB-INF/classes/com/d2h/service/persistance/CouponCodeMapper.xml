@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.d2h.service.persistance.CouponCodeMapper">
+    
+    <!-- <select id="selectCategoryById" parameterType="int" resultType="com.springriver.example.mybatis.bean.Category">
+	select category_name as categoryName from Category where category_id = #{id}
+</select> -->
+
+	<cache />
+
+	<select id="validateCoupanCode" resultType="com.d2h.service.domain.Coupons">
+		SELECT couponId,
+			couponCode,
+			coupanDescription,
+			couponEntryDate,
+			couponExpireDate,
+			couponStatus,
+			couponPercentage,
+			onSpecificProduct,
+			maxDiscountAmount,
+			couponQuantity,
+			minShoppingAmount,
+			maxShoppingAmount,
+			refPercentage,
+			couponType FROM coupons where couponCode = #{couponCode}
+	</select>
+	
+</mapper> 
