@@ -1,0 +1,90 @@
+<!doctype html>
+
+
+  
+  <div style="margin-top:100px">
+
+  <form style="padding:20px">
+ 
+  <div class="form-group">
+    <label for="Order">Order ID</label>
+    <input required type="text" class="form-control" id="Order" ng-minlenght="5" placeholder="Enter Order ID" ng-model="rejectdamage.orderid">
+  </div>
+  
+  <div class="form-group">
+    <label for="Product">Product ID</label>
+    <input required type="text"class="form-control" id="Product"ng-minlenght="5" placeholder="Product ID" ng-model="rejectdamage.productid">
+  </div>
+  
+  <div class="form-group">
+    <label for="Quantity">Quantity</label>
+    <input required ng-keypress="filterValue($event)"  type="text" class="form-control" id="Quantity" placeholder="Quantity" ng-model="rejectdamage.quantity">
+  </div>
+  
+ 
+  
+ <div class="form-group">
+  <label for="sel1">Payment Status</label>
+  <select class="form-control" id="sel1"  ng-model="rejectdamage.status">
+    <option>Rejected</option>
+    <option>Damaged</option>
+      </select>
+</div>
+
+ <div class="form-group">
+    <label for="Message">Message</label>
+    <textarea required class="form-control" id="Message" placeholder="Message" ng-model="rejectdamage.message"></textarea>
+  </div>
+  <div class="form-group">
+  
+
+  
+  <button type="submit" class="btn btn-default" ng-click="getorder();">Get Order </button>
+  <button type="submit" class="btn btn-default" ng-click="getorder();">Reject/Damage </button>
+
+  
+  </div>
+</form>
+
+
+
+
+
+    </div>
+  
+<label>{{orderdata.getorder[0]}}</label>
+<div  ng-repeat="product in orderdata.getorder[0].productList">
+			<form class="form-inline" style="padding:20px">
+		<div class="form-group">	
+		<table>
+		<tr>
+		<td class="col-md-2">
+				<label for="product">{{product.productId}}</label>
+		</td>
+		<td class="col-md-2">
+				<label for="product">{{product.salePrice}}</label>
+		</td>
+		<td class="col-md-2">
+		<input ng-disabled="!product.ischecked" required type="text" class="form-control" id="product" ng-minlenght="5" placeholder="Enter Order ID" ng-model="product.orderQty">
+		</td>
+		<td class="col-md-2">
+		<input type="checkbox" name="exampleInputName2" ng-model="product.ischecked" >
+		</td>
+		
+		<tr>
+		</table>
+		</div>
+</form>		
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-8 row ">
+
+<button type="submit" class="btn btn-default" ng-click="updatereturnedProduct();">Reject/Damage </button>
+</div>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html >
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>Delivery2Home</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+        <link rel="stylesheet" type="text/css" href="css/application.css">
+        <link rel="stylesheet" type="text/css" href="css/global.css">
+        <link rel="stylesheet" type="text/css" href="css/animate.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+             <link rel="stylesheet" href="main.css" type="text/css">
+		<script src="js/bootstrap.js"></script>
+        <script src="js/jquery.backstretch.min.js"></script>
+        <script src="js/typeahead.bundle.js"></script>
+        <script src="js/handlebars.js"></script>
+        <script src="js/application.js"></script>
+        <script src="js/angular.js"></script>
+        <script src="js/vendorangular.js"></script>
+        <script src="js/ui-bootstrap-tpls-0.14.3.min.js"></script>
+        <script src="js/ngStorage.min.js"></script>
+        <script src="js/angular-route.js"></script>
+        <script src="js/angular-cookies.js"></script>
+        <script src="js/angular-animate.js"></script>
+        <script src="js/lodash.min.js""></script>
+        <script src="/path/to/angular-simple-logger/angular-simple-logger[.min].js"></script>
+        <script src="js/angular-google-maps.min.js"></script>
+        <script src="js/index.js"></script>
+        <script src="js/googlemapsensor.js"></script>
+		 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-touch.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/csv.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
+    <script src="http://ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
+    <script src="http://ui-grid.info/release/ui-grid.js"></script>
+    <link rel="stylesheet" href="http://ui-grid.info/release/ui-grid.css" type="text/css">
+    </head>
+    <body ng-app="app" ng-controller="adminCtrl" ng-init="init()">
+        <script></script>
+        <style type="text/css"></style>
+        <nav class="navbar navbar-default" style="width:100%;background: #FFF;
+            border: 2px solid #F00;
+            padding: 10px;margin-bottom:02px;position:fixed;z-index:999" >
+            <!--<nav class="navbar navbar-default" style="position:fixed;z-index:2000;width:100%;background: #FFF;
+                border: 2px solid #F00;
+                padding: 10px;" > -->
+            <div class="container-fluid" style="background-color:#f53700;" >
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" style="color:white" href="#/main">HomeCart.com</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        
+ <li >
+                            <a style="color:white" href="#/checkallorder" data-toggle="modal">
+                         Checkallorder
+                            </a>
+                        </li>
+                        <li>
+                            <a   style="color:white" href="#/checkorder" data-toggle="modal">Customer Order
+                            <i
+                                class="fa fa-mail-forward"></i>
+                            </a>
+                        </li>
+                         <li>
+                            <a   style="color:white" href="#/updateorder" data-toggle="modal">Update Order
+                          
+                            </a>
+                        </li>
+                            <li class="nav-divider "></li>
+                            
+							
+						<li >
+                            <a href="#/reject" data-toggle="modal" style="color:white">
+                           Reject
+                            </a>
+                        </li>
+                        <li >
+                            <a href="#/damage" data-toggle="modal" style="color:white">
+                           Damage
+                            </a>
+                        </li>
+                       <!--  <li ng-show="user.valid">
+                            <a href="#" data-toggle="modal" ng-click="$event.preventDefault()">
+                            <i class="glyphicon glyphicon-user " style="color: green"></i>
+                            <span style="color:white">Hello{{user.firstName}} {{user.lastName}} !</span>
+                            </a>
+                        </li> -->
+                       
+						
+							
+							
+                            
+                           
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+    
+	
+        
+        <div class="container-fluid" >
+            <div ng-view=""></div>
+        </div>
+
+        
+    </body>
+    <!--
+        <footer style="background-color:#f53700; display: block;bottom: 0;
+                    position: relative;margin-bottom:0px">
+        <div class="thumbnail" style="background-color:#f53700; margin-left:50px">
+        <a href="/Delivery2Home/coverpage.html#/aboutus"> About Us</a>
+        <a >FAQ</a>
+        </div>
+        </footer>
+         -->
+</html>

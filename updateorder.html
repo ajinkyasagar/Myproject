@@ -1,0 +1,47 @@
+<!doctype html>
+ 
+  <div style="margin-top:100px" class="col-md-12">
+
+  <form class="col-md-6" >
+ 
+  <div class="form-group" >
+    <label for="exampleInputEmail2">Order ID</label>
+    <input required ng-minlength="6" type="text" class="form-control" id="exampleInputEmail2" placeholder="Enter Order ID" ng-model="update.orderId">
+  </div>
+  <div class="form-group">
+  <label for="sel1">Status</label>
+  <select required class="form-control" id="status" ng-model="update.orderStatus">
+    <option>Cancelled</option>
+    <option>Completed</option>
+    <option>Inprogress</option>
+    </select>
+</div>
+  <div class="form-group">
+  <label for="sel1">Payment Mode</label>
+  <select required class="form-control" id="payment" ng-model="update.paymentType">
+    <option>Card</option>
+    <option>Cheque</option>
+    <option>Cash</option>
+    <option>Sodexo</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="sel1">Payment Status</label>
+  <select required class="form-control" id="sel1" ng-model="update.paymentStatus">
+    <option>Paid</option>
+    <option>Unpaid</option>
+      </select>
+</div>
+  <button type="submit" class="btn btn-default" ng-click="updateorder();">Update Order</button>
+</form>
+  
+
+  
+  
+  
+
+
+
+    </div>
+  

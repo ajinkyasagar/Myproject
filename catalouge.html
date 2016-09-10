@@ -1,0 +1,228 @@
+
+<div  ng-class="boolChangeClass ? 'viewbody1' :'viewbodyindexdescription'" >
+
+<div class="alert alert-success col-md-3"
+	style="position: fixed; top: 100px; right: 10px;z-index:999 ;background-color:green" role="alert"
+	ng-show="added">You have added {{addedItem}}!
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+	
+	</div>
+<div class="alert alert-danger col-md-3"
+	style="position: fixed; top: 100px; right: 10px; z-index:999" role="alert"
+	ng-show="removed">You have removed {{removedItem}}!
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+	</div>
+
+<div bottomreached class="container-fluid"   style="margin-top:100px">
+	<div class="col-md-2 col-sm-2 navbar-left" >
+		<div class="panel-group" id="accordion">
+			<div class="panel panel-default" >
+				<div  class="panel-heading" data-toggle="collapse"
+					data-parent="#accordion" href="#collapseOne" >
+					<h4 class="panel-title" >
+						<a data-toggle="collapse" data-parent="#accordion"
+							href=""><span class="glyphicon glyphicon-plus"></span>
+							Category</a>
+					</h4>
+				</div>
+				<div id="collapseOne" class="panel-collapse collapse in">
+					<ul class="list-group">
+						<li class="list-group-item list-group-item-animated" ng-repeat="category
+						in categories" ng-click="showCategory(category.categoryName)"><!-- <span
+							class="glyphicon glyphicon-pencil text-primary"> --> 
+							<table>
+						<tr>
+						<td>
+						<img class="img-circle img-center imgsmall"  src="./img/{{category.idproductcategory}}.jpeg"></img>
+							</td>
+							<td>
+							<span style="padding:10px">
+							{{category.categoryName}}
+							</span>
+							</td>
+							</tr>
+							</table>
+						<!-- <ul class="list-group">
+								<li class="list-group-item">
+								<span class="glyphicon glyphicon-minus text-primary"></span>
+								<a>Edit Blog</a></li>
+						<li class="list-group-item"><span
+							class="glyphicon glyphicon-minus text-success"></span> <a>Publish
+								Blog</a></li>
+						<li class="list-group-item"><span
+							class="glyphicon glyphicon-minus text-warning"></span> <a>Delete
+								Blog</a></li>
+					</ul> -->
+					</li>
+					
+					<!-- <li class="list-group-item"><span
+						class="glyphicon glyphicon-bell text-success"></span> <a>Users
+							online</a><span class="badge">7</span></li> -->
+				
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div   class="col-md-10 col-sm-10" >
+		
+		
+		<div  class="col-md-3 col-sm-3 col-lg-3 animate-repeat " 
+			ng-repeat="product in products |filterBy:['productName','brand','productCatagory']: search track by $index">
+			<div class="thumbnail shadow" >
+			
+				
+				
+				
+					<img lazy-src="./img/{{product.productId}}.jpeg" ng-click="displayproduct(product) "  class="img-responsive catalougeimg" >
+					
+					
+				
+				<div class="caption">
+				
+				
+				<div class="row">
+				
+				<div class="form-inline " style="text-align:center;">
+								<div class="form-group" >
+									<button type="button" class="btn btn-default  btn-circle"
+										data-type="minus" data-field="quant[2]"
+										ng-click="removeFromCart(product)">
+										<span class="glyphicon glyphicon-minus small"></span>
+									</button>
+									<span class="badge " style="background-color:white;color:#f53700;font-size:20px ;margin-left:5px" ng-show="product.numberOfItemsIncart>0">{{product.numberOfItemsIncart}}</span>
+									<button type="button" class="btn btn-default  btn-circle"
+										data-type="plus" data-field="quant[2]"
+										ng-click="addTOCart(product)">
+										<span class="glyphicon glyphicon-plus"></span>
+									</button>
+									
+								</div>
+							</div>
+				
+				</div>
+					<div class="row">
+					<div class="col-md-12 " style="height:40px" >
+					<span style="text-align:left;font-size: 12px;font: bold"><span style="font-size: 12px;color:gray ;">{{product.brand}}</span>{{product.productName}}</span>
+					
+						</div>
+						<div class="col-md-12">
+						
+					</div>
+							
+						<div class="col-md-12">
+						
+<span style="font-size: 12px; font-weight: bold; color: #303030;"><span
+								class="fa fa-inr"></span>{{product.salePrice}}</span>
+							<span style="font-size: 12px;  color:#707070 ;margin-left:2px " >
+								 MSRP:<span class="fa fa-inr" style="text-decoration: line-through ;">{{product.mrp}}</span></span>
+								
+							
+							
+						</div>
+						<div class="col-md-8" style="text-align:right" >
+							<div class="" >
+					<span class="new-product" ng-show="product.isNew=='Y'"> NEW</span><span
+						class="discount" style="background-color:#f53700">{{product.discount}}% OFF</span>
+				</div>
+						</div>
+						
+						
+					</div>
+					<div style="font-size: 15px">
+						<span >{{product.productVender}}</span>
+						<strong>{{product.shortDescription}}</strong>
+					</div>
+					
+						<p></p>
+					</div>
+					
+			</div>
+		</div>
+		<div style='clear: both;'></div>
+		
+		
+	</div>
+	<!-- <div class="col-md-2" >
+		<div class="col-md-2" style="position:fixed;z-index:444">
+		<div class="panel-group" id="accordian">
+			<div class="panel panel-default"
+				style="width: 150%; margin-right: 10px">
+				<div class="panel-heading" data-toggle="collapse"
+					data-parent="#accordian" href="#yourorder">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion"
+							href=""><span class="glyphicon glyphicon-plus"></span>
+							Your Order</a>
+					</h4>
+				</div>
+				<div id="yourorder" class="panel-collapse collapse in">
+					<div class="panel " >
+						<div class="panel-body" style="overflow:scroll; height:300px;" >
+							<div class="text-warning" ng-show="cart.products.length==0">
+								Noting ordered yet !</div>
+							<ul class=" ">
+								<li class=" col-md-12 list-group-item"
+									ng-repeat="productCart in cart.products">
+									<div class="row">
+									<div class=" col-md-3 label label-success fa fa-rupee">{{productCart.totalPriceInCart}}</div>
+									<div class="col-md-9 pull-right">{{productCart.productName}}</div>
+									</div>
+									<div class="row" style="margin-top:12px">
+									
+																	
+										<div class="form-inline  ">
+										<div class="form-group col-md-9">
+											<button type="button" class=" btn-danger btn-xs"
+												data-type="minus" data-field="quant[2]"
+												ng-click="removeFromCart(productCart)">
+												<span class="glyphicon glyphicon-minus "></span>
+											</button>
+											<span class=" " style="font-size:20px " ng-show="productCart.numberOfItemsIncart>0">{{productCart.numberOfItemsIncart}}</span>
+											<button type="button" class=" btn-success btn-xs"
+												data-type="plus" data-field="quant[2]"
+												ng-click="addTOCart(productCart)">
+												<span class="glyphicon glyphicon-plus"></span>
+											</button>
+											
+										</div>
+											<div class="form-group col-md-3">
+											 <button type="button" class=" btn-danger btn-xs"
+														data-type="plus" data-field="quant[2]"
+														>
+											<span class="glyphicon glyphicon-trash"  ng-click="removeProduct($index)" aria-hidden="true"></span>
+											
+											</button>
+										</div>
+									
+									</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="panel-footer" ng-show="cart.products.length">
+							<div class="label label-danger" style="padding-top:10px;padding-left:20px;background-color:#f53700;font-size:20px">
+								Total: <i class="fa fa-rupee">{{cart.subtotal}}</i>
+							</div>
+						</div>
+						<div class="panel-footer" ng-show="cart.products.length">
+							<div class="text-muted">Happy Shopping!</div>
+						</div>
+						<div class="pull-right">
+							<span class="btn btn-danger" ng-click="clearOrder()"
+								ng-disabled="!cart.products.length">Clear</span> <span
+								class="btn btn-success" ng-click="open()" data-toggle="modal"
+								ng-disabled="!cart.products.length">Checkout</span> 
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div> -->
+</div>
+</div>
